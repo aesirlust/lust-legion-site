@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,29 +8,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
     
     <style>
-        /* --- CONFIGURAZIONE COLORI (Palette estratta dai tuoi screenshot) --- */
+        /* --- COLOR PALETTE & ASSETS --- */
         :root {
-            --bg-dark: #120518;       /* Viola scurissimo quasi nero */
-            --bg-purple: #2a0e36;     /* Viola medio sfondo */
-            --accent-pink: #ff4bb6;   /* Quel rosa acceso del logo/barre */
-            --accent-purple: #8A2BE2; /* Viola elettrico */
-            --accent-green: #32CD32;  /* Verde della barra programming */
-            --text-glow: 0 0 10px rgba(255, 75, 182, 0.5); /* Effetto neon */
+            --bg-dark: #120518;       /* Deepest Purple/Black */
+            --bg-purple: #2a0e36;     /* Mid Purple */
+            --accent-pink: #ff4bb6;   /* Shocking Pink (Art Bar) */
+            --accent-purple: #8A2BE2; /* Electric Purple (Writing Bar) */
+            --accent-green: #32CD32;  /* Lime Green (Programming Bar) */
+            --text-glow: 0 0 10px rgba(255, 75, 182, 0.5); /* Neon Effect */
         }
 
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Nunito', sans-serif; /* Font arrotondato */
+            font-family: 'Nunito', sans-serif;
             background-color: var(--bg-dark);
-            /* Sfondo con gradiente radiale per dare profondità come nel gioco */
+            /* Radial gradient background */
             background: radial-gradient(circle at center top, #451055 0%, #120518 80%);
             color: #ffffff;
             line-height: 1.6;
             min-height: 100vh;
         }
 
-        /* --- HEADER & NAV --- */
+        /* --- HEADER & NAVIGATION --- */
         header {
             background: rgba(20, 5, 30, 0.9);
             padding: 15px 0;
@@ -52,7 +52,7 @@
         }
 
         .logo-text {
-            font-family: 'Fredoka', sans-serif; /* Simile al logo */
+            font-family: 'Fredoka', sans-serif;
             font-size: 1.8rem;
             color: #fff;
             text-transform: uppercase;
@@ -75,17 +75,14 @@
             text-shadow: 0 0 8px var(--accent-pink);
         }
 
-        /* --- HERO SECTION (Copertina) --- */
+        /* --- HERO SECTION --- */
         .hero {
             text-align: center;
             padding: 80px 20px;
-            /* Qui potrai mettere un'immagine di sfondo sfocata delle ragazze */
-            /* background-image: url('tuo-sfondo-sfocato.jpg'); */
-            background-size: cover;
             position: relative;
         }
 
-        /* Il cerchio magico dietro al logo (CSS puro per simulare il pentacolo) */
+        /* Magic Circle Background Effect */
         .hero::before {
             content: '';
             position: absolute;
@@ -99,9 +96,8 @@
             border-radius: 50%;
         }
 
-        /* Immagine Logo Principale */
         .hero-logo {
-            max-width: 400px; /* Regola grandezza logo */
+            max-width: 400px;
             width: 100%;
             filter: drop-shadow(0 0 15px rgba(255, 75, 182, 0.6));
             margin-bottom: 20px;
@@ -118,15 +114,15 @@
             font-size: 1.3rem;
             max-width: 700px;
             margin: 0 auto 40px auto;
-            color: #eccafc; /* Lilla chiarissimo */
+            color: #eccafc;
         }
 
-        /* --- PULSANTI STILE GIOCO --- */
+        /* --- BUTTONS --- */
         .btn {
             background: linear-gradient(90deg, #b030d0 0%, #ff4bb6 100%);
             color: white;
             padding: 15px 50px;
-            border-radius: 50px; /* Pill shape come i tuoi tasti */
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 900;
             font-size: 1.3rem;
@@ -149,11 +145,11 @@
         }
         .btn-android:hover { box-shadow: 0 0 25px var(--accent-green); }
 
-        /* --- SEZIONI (Box Arrotondati) --- */
+        /* --- CONTENT BOXES --- */
         .content-box {
             max-width: 900px;
             margin: 50px auto;
-            background: rgba(42, 14, 54, 0.6); /* Semi-trasparente */
+            background: rgba(42, 14, 54, 0.6);
             border-radius: 20px;
             padding: 40px;
             border: 2px solid #5a1e75;
@@ -171,18 +167,17 @@
             display: inline-block;
         }
 
-        /* --- NEWS STYLE (Simile alla tua roadmap) --- */
+        /* --- NEWS CARDS --- */
         .news-card {
             background: #1e0826;
-            border-radius: 10px; /* Bordi arrotondati come le barre */
+            border-radius: 10px;
             padding: 20px;
             margin-bottom: 20px;
-            border: 2px solid white; /* Bordo bianco come nei tuoi screenshot */
+            border: 2px solid white;
             position: relative;
             overflow: hidden;
         }
 
-        /* Linea colorata laterale per decorazione */
         .news-card::before {
             content: '';
             position: absolute;
@@ -217,10 +212,13 @@
             background: #0d0212;
         }
 
-        /* Mobile Adjustments */
+        /* Mobile */
         @media (max-width: 768px) {
             .hero h1 { font-size: 3rem; }
             .btn { width: 80%; display: block; margin: 10px auto; }
+            .container { flex-direction: column; }
+            nav { margin-top: 15px; }
+            nav a { margin: 0 10px; font-size: 1rem; }
         }
     </style>
 </head>
@@ -238,47 +236,49 @@
     </header>
 
     <div class="hero">
-        <img src="https://via.placeholder.com/400x250?text=Lust+Legion+Logo" alt="Lust Legion Logo" class="hero-logo">
+        <img src="Lust-legion-plogo.jpg" alt="Lust Legion Logo" class="hero-logo">
         
         <p>
-            Benvenuto all'università. Un mistero da risolvere, relazioni da costruire 
-            e un potere inaspettato tra le tue mani.
+            Welcome to University. A mystery to solve, relationships to build, 
+            and unexpected power in your hands.
         </p>
         
         <br>
-        <a href="#download" class="btn">SCARICA ORA</a>
+        <a href="#download" class="btn">PLAY NOW</a>
     </div>
 
     <div id="about" class="content-box">
-        <h2>Il Gioco</h2>
+        <h2>About the Game</h2>
         <p>
-            Lust Legion è una <strong>Visual Novel Point & Click</strong> disegnata a mano.
+            Lust Legion is a hand-drawn <strong>Point & Click Visual Novel</strong>.
             <br><br>
-            Vesti i panni di uno studente universitario la cui vita viene stravolta da un esperimento
-            finito in modo... interessante. Mentre cerchi di scoprire la verità sulla scomparsa di tuo padre,
-            dovrai navigare la vita del campus, gestire le tue finanze e le relazioni con un cast di ragazze uniche.
+            Step into the shoes of a college student whose life is turned upside down by an experiment 
+            gone... interestingly wrong. While uncovering the truth behind your father's disappearance, 
+            you will navigate campus life, manage your finances, and build relationships with a cast of unique girls.
         </p>
         <p>
-            Ogni scelta conta. Come userai il tuo nuovo potere?
+            Every choice matters. How will you use your new power?
         </p>
     </div>
 
     <div id="news" class="content-box">
-        <h2>Aggiornamenti</h2>
+        <h2>Latest Updates</h2>
 
         <div class="news-card">
-            <div class="news-date">Dicembre 2025</div>
+            <div class="news-date">December 2025</div>
             <div class="news-title">Update v0.12 - Campus Life</div>
             <p>
-                Nuove scene aggiunte con Sophia. Rielaborata la mappa dell'università.
-                Il sistema di inventario è stato migliorato.
+                New scenes added with Sophia. University map reworked. 
+                Inventory system improved and various bug fixes.
             </p>
         </div>
 
-        <div class="news-card" style="border-color: #8A2BE2;"> <style>.news-card:nth-child(2)::before { background: #8A2BE2; }</style> <div class="news-date" style="color: #FF69B4;">Novembre 2025</div>
-            <div class="news-title">Revamp Grafico UI</div>
+        <div class="news-card" style="border-color: #8A2BE2;">
+            <style>.news-card:nth-child(2)::before { background: #8A2BE2; }</style>
+            <div class="news-date" style="color: #FF69B4;">November 2025</div>
+            <div class="news-title">UI Graphic Revamp</div>
             <p>
-                La nuova interfaccia utente è online! Nuove barre di progresso e menu più puliti.
+                The new user interface is live! Cleaner menus, new progress bars, and updated visuals.
             </p>
         </div>
     </div>
@@ -286,8 +286,8 @@
     <div id="download" class="content-box" style="text-align: center;">
         <h2>Download</h2>
         <p style="margin-bottom: 30px;">
-            Versione attuale: <strong>v0.12b</strong><br>
-            Scegli la tua piattaforma.
+            Current Version: <strong>v0.12b</strong><br>
+            Choose your platform.
         </p>
 
         <a href="#" class="btn">Windows / Mac (PC)</a>
@@ -295,13 +295,13 @@
         <a href="#" class="btn btn-android">Android (APK)</a>
         
         <p style="margin-top: 30px; font-size: 0.9rem; color: #aaa;">
-            Supporta lo sviluppo su <a href="https://www.patreon.com/c/lustlegion" style="color: #FF69B4;">Patreon</a> per avere le versioni in anticipo.
+            Support development on <a href="https://www.patreon.com/c/lustlegion" style="color: #FF69B4; text-decoration: none; font-weight: bold;">Patreon</a> to get early access.
         </p>
     </div>
 
     <footer>
-        &copy; 2025 Aesir Lust. Contenuto per Adulti (18+).<br>
-        Tutti i diritti riservati.
+        &copy; 2025 Aesir Lust. Adult Content (18+).<br>
+        All rights reserved.
     </footer>
 
 </body>
