@@ -22,7 +22,6 @@
             margin: 0; padding: 0;
             font-family: 'Nunito', sans-serif;
             background-color: var(--bg-dark);
-            /* Sfondo generale sfumato viola/nero tipico di Lust Legion */
             background: radial-gradient(circle at center top, #451055 0%, #120518 80%);
             color: #ffffff;
             line-height: 1.6;
@@ -59,13 +58,13 @@
         }
         nav a:hover { color: white; text-shadow: 0 0 8px var(--accent-pink); }
 
-        /* --- HERO SECTION (Layout Fullscreen come richiesto) --- */
+        /* --- HERO SECTION --- */
         .hero-section {
-            /* IMPORTANTE: Carica un'immagine di sfondo chiamata 'hero_bg.jpg' */
+            /* IMPORTANTE: Carica 'hero_bg.jpg' */
             background: linear-gradient(rgba(18, 5, 24, 0.4), rgba(18, 5, 24, 1)), url('hero_bg.jpg');
             background-size: cover;
             background-position: center;
-            height: 100vh; /* Tutto schermo */
+            height: 100vh;
             display: flex; align-items: center; justify-content: center;
             text-align: center;
             padding-top: 60px;
@@ -79,13 +78,13 @@
 
         .hero-logo {
             max-width: 550px; width: 100%;
-            filter: drop-shadow(0 0 25px rgba(255, 75, 182, 0.4)); /* Glow Rosa originale */
+            filter: drop-shadow(0 0 25px rgba(255, 75, 182, 0.4));
             margin-bottom: 30px;
             animation: float 6s ease-in-out infinite;
         }
         @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }
 
-        /* Pulsanti Stile Lust Legion (Gradienti) */
+        /* Pulsanti Hero */
         .hero-buttons { display: flex; justify-content: center; gap: 20px; margin-top: 20px; flex-wrap: wrap; }
 
         .btn-hero {
@@ -97,11 +96,11 @@
         .btn-hero i { margin-right: 10px; font-size: 1.3rem; }
 
         .btn-patreon { 
-            background: linear-gradient(90deg, #FF424D 0%, #ff7b5c 100%); /* Rosso Patreon ma "Glowy" */
+            background: linear-gradient(90deg, #FF424D 0%, #ff7b5c 100%);
             color: white; box-shadow: 0 5px 20px rgba(255, 66, 77, 0.4); 
         }
         .btn-download { 
-            background: linear-gradient(90deg, #b030d0 0%, #ff4bb6 100%); /* Viola/Rosa originale */
+            background: linear-gradient(90deg, #b030d0 0%, #ff4bb6 100%);
             color: white; box-shadow: 0 5px 20px rgba(255, 75, 182, 0.4); 
         }
 
@@ -111,52 +110,42 @@
 
         h2 {
             font-family: 'Montserrat', sans-serif; 
-            color: var(--accent-pink); /* Titolo Rosa Neon */
+            color: var(--accent-pink);
             font-size: 2.2rem; margin-top: 0; margin-bottom: 30px; font-weight: 800; letter-spacing: -1px;
         }
+        /* Linea sotto il titolo (Centrata) */
         h2::after {
             content: ''; display: block; width: 60px; height: 4px; 
-            background: var(--accent-purple); margin-top: 10px; border-radius: 2px;
+            background: var(--accent-purple); margin: 10px auto 0 auto; border-radius: 2px;
         }
 
-        /* --- ABOUT (Layout Summertime: Testo SX / Immagine DX) --- */
-        #about { background: rgba(30, 10, 40, 0.4); } /* Sfondo scuro semi-trasparente */
+        /* --- ABOUT (Layout Modificato: Solo testo centrale) --- */
+        #about { background: rgba(30, 10, 40, 0.4); text-align: center; }
 
         .about-layout {
-            display: flex;
-            align-items: flex-start; /* Allinea in alto */
-            gap: 60px; /* Spazio tra testo e immagine */
+            max-width: 800px; /* Larghezza massima del testo per leggibilità */
+            margin: 0 auto; /* Centra il blocco */
         }
-
-        .about-text-col { flex: 1; text-align: left; }
         
         .about-description {
-            font-size: 1.1rem; color: #dcdcdc; margin-bottom: 30px;
+            font-size: 1.1rem; color: #dcdcdc; margin-bottom: 40px;
         }
 
-        /* Immagine Personaggio a destra */
-        .about-image-col {
-            flex: 0 0 350px; /* Larghezza fissa per l'immagine */
-            text-align: center;
-        }
-        .character-img {
-            max-width: 100%; height: auto;
-            filter: drop-shadow(0 0 20px rgba(138,43,226,0.5)); /* Glow viola per coerenza */
-        }
-
-        /* Lista Features (Layout a 2 colonne come nello screen, ma icone rosa) */
+        /* Lista Features (Griglia centrata) */
         .features-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 30px;
+            max-width: 600px; margin-left: auto; margin-right: auto; /* Centra la griglia */
+            text-align: left; /* Allinea il testo delle feature a sinistra */
         }
-        .feature-item { font-size: 0.95rem; color: #ccc; display: flex; align-items: center; }
-        .feature-item i { color: var(--accent-pink); margin-right: 10px; width: 20px; }
+        .feature-item { font-size: 1rem; color: #ccc; display: flex; align-items: center; }
+        .feature-item i { color: var(--accent-pink); margin-right: 12px; }
 
         /* --- SCREENSHOTS (Griglia a 4) --- */
-        #screenshots { background: transparent; }
+        #screenshots { background: transparent; text-align: center; }
         
         .screenshot-grid {
             display: grid; 
-            grid-template-columns: repeat(4, 1fr); /* 4 Colonne esatte */
+            grid-template-columns: repeat(4, 1fr);
             gap: 20px; 
             margin-top: 40px;
         }
@@ -184,11 +173,10 @@
 
         /* RESPONSIVE (Mobile) */
         @media (max-width: 900px) {
-            .about-layout { flex-direction: column-reverse; } /* Su mobile immagine sopra o sotto */
-            .about-image-col { margin: 0 auto 30px auto; max-width: 300px; }
             .screenshot-grid { grid-template-columns: 1fr 1fr; } /* 2 colonne su tablet */
             .hero-section { background-position: center; }
             .hero h1 { font-size: 2.5rem; }
+            .features-grid { grid-template-columns: 1fr; max-width: 300px; } /* 1 colonna feature su mobile */
         }
     </style>
 </head>
@@ -226,36 +214,29 @@
 
     <section id="about" class="section">
         <div class="container-content">
+            <h2>About the Game</h2>
             <div class="about-layout">
-                
-                <div class="about-text-col">
-                    <h2>About the Game</h2>
-                    <div class="about-description">
-                        <p>
-                            Lust Legion is a hand-drawn <strong>Point & Click Visual Novel</strong>.
-                            Step into the shoes of a college student whose life is turned upside down by an experiment gone... interestingly wrong.
-                        </p>
-                        <p>
-                            While uncovering the truth behind your father's disappearance, you will navigate campus life, manage your finances, and build relationships with a cast of unique characters.
-                        </p>
-                        <p>
-                            Every choice matters. How will you use your new power?
-                        </p>
-                    </div>
-
-                    <h3 style="color: var(--accent-purple); margin-bottom: 15px; font-family:'Montserrat';">Features</h3>
-                    <div class="features-grid">
-                        <div class="feature-item"><i class="fas fa-check"></i> Visual Novel</div>
-                        <div class="feature-item"><i class="fas fa-check"></i> Point & Click</div>
-                        <div class="feature-item"><i class="fas fa-check"></i> Mystery Story</div>
-                        <div class="feature-item"><i class="fas fa-check"></i> Dating Sim</div>
-                        <div class="feature-item"><i class="fas fa-check"></i> Multiple Endings</div>
-                        <div class="feature-item"><i class="fas fa-check"></i> Gallery Mode</div>
-                    </div>
+                <div class="about-description">
+                    <p>
+                        Lust Legion is a hand-drawn <strong>Point & Click Visual Novel</strong>.
+                        Step into the shoes of a college student whose life is turned upside down by an experiment gone... interestingly wrong.
+                    </p>
+                    <p>
+                        While uncovering the truth behind your father's disappearance, you will navigate campus life, manage your finances, and build relationships with a cast of unique characters.
+                    </p>
+                    <p>
+                        Every choice matters. How will you use your new power?
+                    </p>
                 </div>
 
-                <div class="about-image-col">
-                    <img src="character.png" alt="Main Character" class="character-img">
+                <h3 style="color: var(--accent-purple); margin-bottom: 15px; font-family:'Montserrat'; margin-top: 40px;">Features</h3>
+                <div class="features-grid">
+                    <div class="feature-item"><i class="fas fa-check"></i> Visual Novel Storytelling</div>
+                    <div class="feature-item"><i class="fas fa-check"></i> Point & Click Gameplay</div>
+                    <div class="feature-item"><i class="fas fa-check"></i> Mystery & Corruption</div>
+                    <div class="feature-item"><i class="fas fa-check"></i> Dating Sim Elements</div>
+                    <div class="feature-item"><i class="fas fa-check"></i> Meaningful Choices</div>
+                    <div class="feature-item"><i class="fas fa-check"></i> High Quality Art</div>
                 </div>
             </div>
         </div>
