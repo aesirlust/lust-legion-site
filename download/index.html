@@ -5,16 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Download - Lust Legion</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- STESSO STILE DELLA HOME --- */
+        /* --- STILE BASE (Uguale alla Home) --- */
         :root {
             --bg-dark: #120518;       
             --bg-purple: #2a0e36;     
             --accent-pink: #ff4bb6;   
             --accent-purple: #8A2BE2; 
-            --accent-green: #32CD32;  
+            --accent-green: #32CD32;
+            --accent-red: #ff3333; /* Nuovo: per le croci nelle feature */
+            --patreon-orange: #FF424D; /* Colore brand Patreon */
         }
 
         body {
@@ -26,8 +28,6 @@
             color: #ffffff;
             line-height: 1.6;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
         }
 
         /* HEADER */
@@ -35,10 +35,13 @@
             background: rgba(15, 5, 20, 0.95);
             padding: 20px 0;
             border-bottom: 1px solid rgba(255,255,255,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
             display: flex;
@@ -63,87 +66,178 @@
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             font-size: 0.9rem;
-            transition: 0.3s;
             text-transform: uppercase;
             letter-spacing: 1px;
+            transition: 0.3s;
         }
         nav a:hover { color: white; }
 
-        /* CONTENT */
-        .main-content {
-            flex: 1; /* Spinge il footer in basso */
+        /* --- NUOVA SEZIONE BANNER (Stile Summertime Saga) --- */
+        .download-hero {
+            position: relative;
+            /* Placeholder: Carica un'immagine larga tipo 1920x400px chiamata 'download_banner.jpg' */
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(18, 5, 24, 1)), url('https://via.placeholder.com/1920x400?text=Wide+Banner+Image'); 
+            background-size: cover;
+            background-position: center;
+            height: 350px; /* Altezza fissa */
             display: flex;
-            justify-content: center;
             align-items: center;
-            padding: 50px 20px;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        .download-box {
-            max-width: 800px;
-            width: 100%;
-            background: rgba(30, 10, 40, 0.7);
+        /* Box Patreon sovrapposto al banner */
+        .cta-overlay {
+            background: rgba(18, 5, 24, 0.85);
+            padding: 30px 50px;
             border-radius: 15px;
-            padding: 60px;
             border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(10px);
             text-align: center;
+            box-shadow: 0 0 20px rgba(0,0,0,0.8);
+            transform: translateY(20px); /* Leggero offset */
         }
 
-        h1 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--accent-pink);
-            font-size: 2.5rem;
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-
-        .version-tag {
-            background: rgba(255,255,255,0.1);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: #ccc;
-            display: inline-block;
-            margin-bottom: 40px;
-        }
-
-        /* BUTTONS */
-        .btn {
-            background: linear-gradient(90deg, #b030d0 0%, #ff4bb6 100%);
+        .patreon-btn {
+            background-color: var(--patreon-orange);
             color: white;
-            padding: 18px 60px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            padding: 15px 40px;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 800;
-            font-size: 1.2rem;
-            font-family: 'Montserrat', sans-serif;
-            letter-spacing: 1px;
-            box-shadow: 0 5px 15px rgba(255, 75, 182, 0.4);
+            text-transform: uppercase;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(255, 66, 77, 0.4);
             transition: transform 0.2s;
-            display: block; /* Un bottone per riga */
-            margin: 20px auto;
-            max-width: 300px;
         }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            filter: brightness(1.1);
+        .patreon-btn:hover { transform: scale(1.05); }
+
+        /* --- GRIGLIA VERSIONI --- */
+        .versions-container {
+            max-width: 1100px;
+            margin: 80px auto 50px auto; /* Margine alto per staccarsi dal banner */
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Due colonne uguali */
+            gap: 40px;
         }
 
-        .btn-android {
-            background: linear-gradient(90deg, #228b22 0%, #32CD32 100%);
-            box-shadow: 0 5px 15px rgba(50, 205, 50, 0.4);
+        .version-card {
+            background: rgba(30, 10, 40, 0.6);
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s;
         }
+        
+        .version-card:hover {
+            transform: translateY(-5px);
+            background: rgba(30, 10, 40, 0.8);
+            border-color: var(--accent-purple);
+        }
+
+        /* Header della card (Titolo versione) */
+        .card-header {
+            padding: 25px;
+            text-align: center;
+            background: rgba(0,0,0,0.2);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .card-header h2 {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            color: white;
+        }
+        
+        .version-number {
+            color: #888;
+            font-family: 'Nunito', monospace;
+            margin-top: 5px;
+            display: block;
+        }
+
+        /* Lista Features */
+        .features-list {
+            padding: 30px;
+            flex-grow: 1; /* Occupa tutto lo spazio disponibile */
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: #ddd;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            padding-bottom: 8px;
+        }
+
+        .icon {
+            margin-right: 15px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        .check { color: var(--accent-green); }
+        .cross { color: var(--accent-red); opacity: 0.5; }
+
+        /* Footer della card (Bottone download) */
+        .card-footer {
+            padding: 30px;
+            text-align: center;
+            background: rgba(0,0,0,0.2);
+        }
+
+        .dl-btn {
+            display: block;
+            width: 100%;
+            padding: 15px 0;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: white;
+            transition: 0.2s;
+            box-sizing: border-box;
+        }
+
+        /* Stile Bottone "Old/Stable" */
+        .btn-stable {
+            background: #2a2a40;
+            border: 2px solid #444;
+        }
+        .btn-stable:hover { background: #3a3a55; border-color: #666; }
+
+        /* Stile Bottone "New/Latest" */
+        .btn-latest {
+            background: linear-gradient(90deg, #b030d0 0%, #ff4bb6 100%);
+            box-shadow: 0 0 15px rgba(255, 75, 182, 0.3);
+            border: none;
+        }
+        .btn-latest:hover { box-shadow: 0 0 25px rgba(255, 75, 182, 0.6); filter: brightness(1.1); }
+
 
         /* FOOTER */
         footer {
             text-align: center;
-            padding: 40px;
+            padding: 60px 20px;
             color: #666;
             font-size: 0.85rem;
             background: #08020a;
             font-family: 'Montserrat', sans-serif;
+            margin-top: 50px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .versions-container { grid-template-columns: 1fr; }
+            .download-hero { height: 300px; }
+            .cta-overlay { width: 80%; padding: 20px; }
         }
     </style>
 </head>
@@ -161,28 +255,84 @@
         </div>
     </header>
 
-    <div class="main-content">
-        <div class="download-box">
-            <img src="../Lust-legion-plogo.jpg" alt="Logo" style="width: 150px; margin-bottom: 20px; filter: drop-shadow(0 0 10px rgba(255,75,182,0.5));">
-            
-            <h1>Select Platform</h1>
-            <div class="version-tag">Current Version: v0.12b</div>
-            
-            <p style="margin-bottom: 40px; color: #ddd;">
-                Downloading implies you are 18+ years old.
-            </p>
-
-            <a href="#" class="btn">WINDOWS / MAC</a>
-            <a href="#" class="btn btn-android">ANDROID (APK)</a>
-
-            <p style="margin-top: 30px; font-size: 0.8rem; color: #888;">
-                Issues with the download? Check our <a href="https://www.patreon.com/c/lustlegion" style="color: var(--accent-pink);">Patreon</a>.
-            </p>
+    <div class="download-hero">
+        <div class="cta-overlay">
+            <h3 style="margin: 0 0 15px 0; color: #fff; font-family: 'Montserrat';">SUPPORT DEVELOPMENT</h3>
+            <a href="https://www.patreon.com/c/lustlegion" target="_blank" class="patreon-btn">
+                BECOME A PATRON
+            </a>
         </div>
     </div>
 
+    <div class="versions-container">
+        
+        <div class="version-card">
+            <div class="card-header">
+                <h2>Public Release</h2>
+                <span class="version-number">v0.11b (Stable)</span>
+            </div>
+            
+            <div class="features-list">
+                <div class="feature-item">
+                    <span class="icon check">✔</span> Playable until Chapter 2
+                </div>
+                <div class="feature-item">
+                    <span class="icon check">✔</span> Standard Definition (720p)
+                </div>
+                <div class="feature-item">
+                    <span class="icon cross">✘</span> No Gallery Mode
+                </div>
+                <div class="feature-item">
+                    <span class="icon cross">✘</span> Old UI Design
+                </div>
+                <div class="feature-item">
+                    <span class="icon cross">✘</span> Late Updates
+                </div>
+            </div>
+
+            <div class="card-footer">
+                <a href="#" class="dl-btn btn-stable">DOWNLOAD v0.11b</a>
+            </div>
+        </div>
+
+        <div class="version-card" style="border: 1px solid var(--accent-pink);">
+            <div class="card-header" style="background: rgba(255, 75, 182, 0.1);">
+                <h2 style="color: var(--accent-pink);">Latest Build</h2>
+                <span class="version-number" style="color: #ffbfe0;">v0.12 (Current)</span>
+            </div>
+            
+            <div class="features-list">
+                <div class="feature-item">
+                    <span class="icon check">✔</span> Playable until Chapter 3
+                </div>
+                <div class="feature-item">
+                    <span class="icon check">✔</span> High Definition (1080p)
+                </div>
+                <div class="feature-item">
+                    <span class="icon check">✔</span> Full Gallery Unlocked
+                </div>
+                <div class="feature-item">
+                    <span class="icon check">✔</span> New UI & Animations
+                </div>
+                <div class="feature-item">
+                    <span class="icon check">✔</span> 3 New Scenes
+                </div>
+            </div>
+
+            <div class="card-footer">
+                <a href="#" class="dl-btn btn-latest">DOWNLOAD v0.12</a>
+                
+                <div style="margin-top: 10px; font-size: 0.8rem; color: #aaa;">
+                    Also available on <a href="#" style="color: var(--accent-pink);">Android</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
     <footer>
-        &copy; 2025 Aesir Lust. Adult Content (18+).
+        &copy; 2025 Aesir Lust. Adult Content (18+).<br>
+        <a href="https://www.patreon.com/c/lustlegion" style="color: #666; text-decoration: none;">Visit Patreon</a>
     </footer>
 
 </body>
