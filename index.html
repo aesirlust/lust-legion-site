@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download - Lust Legion</title>
+    <title>Lust Legion - Official Site</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- STESSO STILE DELLA HOME --- */
+        /* --- COLOR PALETTE --- */
         :root {
             --bg-dark: #120518;       
             --bg-purple: #2a0e36;     
             --accent-pink: #ff4bb6;   
             --accent-purple: #8A2BE2; 
             --accent-green: #32CD32;  
+            --text-glow: 0 0 10px rgba(255, 75, 182, 0.5); 
         }
 
         body {
@@ -22,19 +23,22 @@
             padding: 0;
             font-family: 'Nunito', sans-serif;
             background-color: var(--bg-dark);
-            background: radial-gradient(circle at center top, #2a0e36 0%, #120518 80%);
+            background: radial-gradient(circle at center top, #451055 0%, #120518 80%);
             color: #ffffff;
             line-height: 1.6;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
         }
 
-        /* HEADER */
+        /* --- HEADER & NAVIGATION --- */
         header {
-            background: rgba(15, 5, 20, 0.95);
+            background: rgba(15, 5, 20, 0.95); /* Più scuro e opaco per professionalità */
             padding: 20px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.1); /* Bordo sottile elegante invece del viola acceso */
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
         }
 
         .container {
@@ -46,88 +50,97 @@
             align-items: center;
         }
 
+        /* MODIFICA: LOGO PROFESSIONALE */
         .logo-text {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Montserrat', sans-serif; /* Font serio e dritto */
             font-size: 1.4rem;
             color: #ffffff;
             text-transform: uppercase;
-            letter-spacing: 4px;
-            font-weight: 700;
-            text-decoration: none;
+            letter-spacing: 4px; /* Spaziatura ampia = Eleganza */
+            font-weight: 700; /* Grassetto ma non troppo */
+            text-shadow: none; /* RIMOSSO IL NEON */
         }
 
         nav a {
-            color: #bbb;
+            color: #bbb; /* Grigio chiaro invece di bianco sparato */
             text-decoration: none;
             margin-left: 30px;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Montserrat', sans-serif; /* Anche il menu usa il font serio */
             font-weight: 600;
             font-size: 0.9rem;
             transition: 0.3s;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        nav a:hover { color: white; }
-
-        /* CONTENT */
-        .main-content {
-            flex: 1; /* Spinge il footer in basso */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 50px 20px;
+        nav a:hover {
+            color: white;
+            /* Nessun neon al passaggio del mouse, solo cambio colore pulito */
         }
 
-        .download-box {
-            max-width: 800px;
-            width: 100%;
-            background: rgba(30, 10, 40, 0.7);
-            border-radius: 15px;
-            padding: 60px;
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-            backdrop-filter: blur(5px);
+        /* --- HERO SECTION --- */
+        .hero {
             text-align: center;
+            padding: 80px 20px;
+            position: relative;
         }
 
-        h1 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--accent-pink);
-            font-size: 2.5rem;
-            margin-top: 0;
-            margin-bottom: 10px;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(138,43,226,0.15) 0%, rgba(0,0,0,0) 70%);
+            z-index: -1;
+            border-radius: 50%;
         }
 
-        .version-tag {
-            background: rgba(255,255,255,0.1);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: #ccc;
-            display: inline-block;
-            margin-bottom: 40px;
+        .hero-logo {
+            max-width: 450px;
+            width: 100%;
+            /* Manteniamo il glow sul logo immagine perché fa parte dell'artwork */
+            filter: drop-shadow(0 0 20px rgba(255, 75, 182, 0.4)); 
+            margin-bottom: 30px;
+            animation: float 6s ease-in-out infinite;
         }
 
-        /* BUTTONS */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            color: #dcdcdc;
+            font-weight: 300;
+        }
+
+        /* --- BUTTONS --- */
         .btn {
             background: linear-gradient(90deg, #b030d0 0%, #ff4bb6 100%);
             color: white;
-            padding: 18px 60px;
+            padding: 15px 50px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 800;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-family: 'Montserrat', sans-serif;
             letter-spacing: 1px;
             box-shadow: 0 5px 15px rgba(255, 75, 182, 0.4);
-            transition: transform 0.2s;
-            display: block; /* Un bottone per riga */
-            margin: 20px auto;
-            max-width: 300px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-block;
+            text-transform: uppercase;
+            border: none; /* Rimosso bordo per look più moderno */
         }
         
         .btn:hover {
             transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 75, 182, 0.6);
             filter: brightness(1.1);
         }
 
@@ -135,15 +148,95 @@
             background: linear-gradient(90deg, #228b22 0%, #32CD32 100%);
             box-shadow: 0 5px 15px rgba(50, 205, 50, 0.4);
         }
+        .btn-android:hover { box-shadow: 0 10px 25px rgba(50, 205, 50, 0.6); }
 
-        /* FOOTER */
+        /* --- CONTENT BOXES --- */
+        .content-box {
+            max-width: 900px;
+            margin: 60px auto;
+            background: rgba(30, 10, 40, 0.7);
+            border-radius: 15px; /* Meno rotondo di prima */
+            padding: 50px;
+            border: 1px solid rgba(255,255,255,0.1); /* Bordo sottile ed elegante */
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+        }
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--accent-pink);
+            font-size: 2.2rem;
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            text-shadow: none; /* Rimosso effetto neon dai titoli */
+            position: relative;
+            display: inline-block;
+        }
+        
+        /* Linea decorativa sotto i titoli */
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent-purple);
+            margin-top: 10px;
+            border-radius: 2px;
+        }
+
+        /* --- NEWS CARDS --- */
+        .news-card {
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--accent-pink); /* Solo linea sinistra, niente bordo completo */
+            transition: background 0.3s;
+        }
+        
+        .news-card:hover {
+            background: rgba(255,255,255,0.06);
+        }
+
+        .news-date {
+            color: var(--accent-green);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        
+        .news-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            margin: 0 0 10px 0;
+            color: white;
+            font-weight: 700;
+        }
+
+        /* --- FOOTER --- */
         footer {
             text-align: center;
-            padding: 40px;
+            padding: 60px 20px;
+            margin-top: 80px;
             color: #666;
             font-size: 0.85rem;
             background: #08020a;
             font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .btn { width: 100%; display: block; margin: 15px 0; text-align: center; box-sizing: border-box; }
+            .container { flex-direction: column; }
+            nav { margin-top: 20px; }
+            nav a { margin: 0 15px; font-size: 0.8rem; }
+            .content-box { padding: 30px; margin: 30px 15px; }
         }
     </style>
 </head>
@@ -151,38 +244,81 @@
 
     <header>
         <div class="container">
-            <a href="../" class="logo-text">AESIR LUST</a>
+            <div class="logo-text">AESIR LUST</div>
             <nav>
-                <a href="../">Home</a>
-                <a href="../#about">About</a>
-                <a href="../#news">News</a>
-                <a href="#" style="color: white;">Download</a>
+                <a href="#about">About</a>
+                <a href="#news">News</a>
+                <a href="#download">Download</a>
             </nav>
         </div>
     </header>
 
-    <div class="main-content">
-        <div class="download-box">
-            <img src="../Lust-legion-plogo.jpg" alt="Logo" style="width: 150px; margin-bottom: 20px; filter: drop-shadow(0 0 10px rgba(255,75,182,0.5));">
-            
-            <h1>Select Platform</h1>
-            <div class="version-tag">Current Version: v0.12b</div>
-            
-            <p style="margin-bottom: 40px; color: #ddd;">
-                Downloading implies you are 18+ years old.
+    <div class="hero">
+        <img src="Lust-legion-plogo.jpg" alt="Lust Legion Logo" class="hero-logo">
+        
+        <p>
+            Welcome to University. A mystery to solve, relationships to build, 
+            and unexpected power in your hands.
+        </p>
+        
+        <br>
+        <a href="#download" class="btn">PLAY NOW</a>
+    </div>
+
+    <div id="about" class="content-box">
+        <h2>About the Game</h2>
+        <p>
+            Lust Legion is a hand-drawn <strong>Point & Click Visual Novel</strong>.
+            <br><br>
+            Step into the shoes of a college student whose life is turned upside down by an experiment 
+            gone... interestingly wrong. While uncovering the truth behind your father's disappearance, 
+            you will navigate campus life, manage your finances, and build relationships with a cast of unique characters.
+        </p>
+        <p>
+            Every choice matters. How will you use your new power?
+        </p>
+    </div>
+
+    <div id="news" class="content-box">
+        <h2>Latest Updates</h2>
+
+        <div class="news-card">
+            <div class="news-date">December 2025</div>
+            <div class="news-title">Update v0.12 - Campus Life</div>
+            <p>
+                New scenes added with Sophia. University map reworked. 
+                Inventory system improved and various bug fixes.
             </p>
+        </div>
 
-            <a href="#" class="btn">WINDOWS / MAC</a>
-            <a href="#" class="btn btn-android">ANDROID (APK)</a>
-
-            <p style="margin-top: 30px; font-size: 0.8rem; color: #888;">
-                Issues with the download? Check our <a href="https://www.patreon.com/c/lustlegion" style="color: var(--accent-pink);">Patreon</a>.
+        <div class="news-card" style="border-left-color: #8A2BE2;">
+            <div class="news-date" style="color: #FF69B4;">November 2025</div>
+            <div class="news-title">UI Graphic Revamp</div>
+            <p>
+                The new user interface is live! Cleaner menus, new progress bars, and updated visuals.
             </p>
         </div>
     </div>
 
+    <div id="download" class="content-box" style="text-align: center;">
+        <h2>Download</h2>
+        <p style="margin-bottom: 40px; color: #ccc;">
+            Current Version: <strong>v0.12b</strong><br>
+            Select your platform below.
+        </p>
+
+        <a href="#" class="btn">Windows / Mac (PC)</a>
+        <br><br>
+        <a href="#" class="btn btn-android">Android (APK)</a>
+        
+        <p style="margin-top: 40px; font-size: 0.9rem; color: #888;">
+            Support development on <a href="https://www.patreon.com/c/lustlegion" style="color: #FF69B4; text-decoration: none; font-weight: bold;">Patreon</a> to get early access and exclusive content.
+        </p>
+    </div>
+
     <footer>
-        &copy; 2025 Aesir Lust. Adult Content (18+).
+        &copy; 2025 Aesir Lust. Adult Content (18+).<br>
+        All rights reserved.
     </footer>
 
 </body>
