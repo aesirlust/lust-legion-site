@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lust Legion - Official Site</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CONFIGURAZIONE COLORI (Palette estratta dai tuoi screenshot) --- */
+        :root {
+            --bg-dark: #120518;       /* Viola scurissimo quasi nero */
+            --bg-purple: #2a0e36;     /* Viola medio sfondo */
+            --accent-pink: #ff4bb6;   /* Quel rosa acceso del logo/barre */
+            --accent-purple: #8A2BE2; /* Viola elettrico */
+            --accent-green: #32CD32;  /* Verde della barra programming */
+            --text-glow: 0 0 10px rgba(255, 75, 182, 0.5); /* Effetto neon */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Nunito', sans-serif; /* Font arrotondato */
+            background-color: var(--bg-dark);
+            /* Sfondo con gradiente radiale per dare profondità come nel gioco */
+            background: radial-gradient(circle at center top, #451055 0%, #120518 80%);
+            color: #ffffff;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* --- HEADER & NAV --- */
+        header {
+            background: rgba(20, 5, 30, 0.9);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--accent-purple);
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-family: 'Fredoka', sans-serif; /* Simile al logo */
+            font-size: 1.8rem;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: var(--text-glow);
+            font-weight: 600;
+        }
+
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+        nav a:hover {
+            color: var(--accent-pink);
+            text-shadow: 0 0 8px var(--accent-pink);
+        }
+
+        /* --- HERO SECTION (Copertina) --- */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            /* Qui potrai mettere un'immagine di sfondo sfocata delle ragazze */
+            /* background-image: url('tuo-sfondo-sfocato.jpg'); */
+            background-size: cover;
+            position: relative;
+        }
+
+        /* Il cerchio magico dietro al logo (CSS puro per simulare il pentacolo) */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(138,43,226,0.2) 0%, rgba(0,0,0,0) 70%);
+            z-index: -1;
+            border-radius: 50%;
+        }
+
+        /* Immagine Logo Principale */
+        .hero-logo {
+            max-width: 400px; /* Regola grandezza logo */
+            width: 100%;
+            filter: drop-shadow(0 0 15px rgba(255, 75, 182, 0.6));
+            margin-bottom: 20px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            color: #eccafc; /* Lilla chiarissimo */
+        }
+
+        /* --- PULSANTI STILE GIOCO --- */
+        .btn {
+            background: linear-gradient(90deg, #b030d0 0%, #ff4bb6 100%);
+            color: white;
+            padding: 15px 50px;
+            border-radius: 50px; /* Pill shape come i tuoi tasti */
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1.3rem;
+            border: 3px solid rgba(255,255,255,0.3);
+            box-shadow: 0 0 15px var(--accent-pink);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+        
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px var(--accent-pink);
+            filter: brightness(1.2);
+        }
+
+        .btn-android {
+            background: linear-gradient(90deg, #228b22 0%, #32CD32 100%);
+            box-shadow: 0 0 15px var(--accent-green);
+        }
+        .btn-android:hover { box-shadow: 0 0 25px var(--accent-green); }
+
+        /* --- SEZIONI (Box Arrotondati) --- */
+        .content-box {
+            max-width: 900px;
+            margin: 50px auto;
+            background: rgba(42, 14, 54, 0.6); /* Semi-trasparente */
+            border-radius: 20px;
+            padding: 40px;
+            border: 2px solid #5a1e75;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        h2 {
+            font-family: 'Fredoka', sans-serif;
+            color: var(--accent-pink);
+            font-size: 2.5rem;
+            margin-top: 0;
+            text-shadow: 0 0 10px rgba(255, 75, 182, 0.4);
+            border-bottom: 2px solid var(--accent-purple);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        /* --- NEWS STYLE (Simile alla tua roadmap) --- */
+        .news-card {
+            background: #1e0826;
+            border-radius: 10px; /* Bordi arrotondati come le barre */
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 2px solid white; /* Bordo bianco come nei tuoi screenshot */
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Linea colorata laterale per decorazione */
+        .news-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 10px;
+            background: var(--accent-pink);
+        }
+
+        .news-date {
+            color: var(--accent-green);
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+        
+        .news-title {
+            font-size: 1.4rem;
+            margin: 5px 0;
+            color: white;
+            font-weight: 800;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px;
+            margin-top: 50px;
+            color: #886a94;
+            font-size: 0.9rem;
+            background: #0d0212;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .btn { width: 80%; display: block; margin: 10px auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo-text">LUST LEGION</div>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#news">News</a>
+                <a href="#download">Download</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <img src="https://via.placeholder.com/400x250?text=Lust+Legion+Logo" alt="Lust Legion Logo" class="hero-logo">
+        
+        <p>
+            Benvenuto all'università. Un mistero da risolvere, relazioni da costruire 
+            e un potere inaspettato tra le tue mani.
+        </p>
+        
+        <br>
+        <a href="#download" class="btn">SCARICA ORA</a>
+    </div>
+
+    <div id="about" class="content-box">
+        <h2>Il Gioco</h2>
+        <p>
+            Lust Legion è una <strong>Visual Novel Point & Click</strong> disegnata a mano.
+            <br><br>
+            Vesti i panni di uno studente universitario la cui vita viene stravolta da un esperimento
+            finito in modo... interessante. Mentre cerchi di scoprire la verità sulla scomparsa di tuo padre,
+            dovrai navigare la vita del campus, gestire le tue finanze e le relazioni con un cast di ragazze uniche.
+        </p>
+        <p>
+            Ogni scelta conta. Come userai il tuo nuovo potere?
+        </p>
+    </div>
+
+    <div id="news" class="content-box">
+        <h2>Aggiornamenti</h2>
+
+        <div class="news-card">
+            <div class="news-date">Dicembre 2025</div>
+            <div class="news-title">Update v0.12 - Campus Life</div>
+            <p>
+                Nuove scene aggiunte con Sophia. Rielaborata la mappa dell'università.
+                Il sistema di inventario è stato migliorato.
+            </p>
+        </div>
+
+        <div class="news-card" style="border-color: #8A2BE2;"> <style>.news-card:nth-child(2)::before { background: #8A2BE2; }</style> <div class="news-date" style="color: #FF69B4;">Novembre 2025</div>
+            <div class="news-title">Revamp Grafico UI</div>
+            <p>
+                La nuova interfaccia utente è online! Nuove barre di progresso e menu più puliti.
+            </p>
+        </div>
+    </div>
+
+    <div id="download" class="content-box" style="text-align: center;">
+        <h2>Download</h2>
+        <p style="margin-bottom: 30px;">
+            Versione attuale: <strong>v0.12b</strong><br>
+            Scegli la tua piattaforma.
+        </p>
+
+        <a href="#" class="btn">Windows / Mac (PC)</a>
+        <br><br>
+        <a href="#" class="btn btn-android">Android (APK)</a>
+        
+        <p style="margin-top: 30px; font-size: 0.9rem; color: #aaa;">
+            Supporta lo sviluppo su <a href="https://www.patreon.com/c/lustlegion" style="color: #FF69B4;">Patreon</a> per avere le versioni in anticipo.
+        </p>
+    </div>
+
+    <footer>
+        &copy; 2025 Aesir Lust. Contenuto per Adulti (18+).<br>
+        Tutti i diritti riservati.
+    </footer>
+
+</body>
+</html>
