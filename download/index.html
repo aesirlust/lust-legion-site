@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download - Lust Legion</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- STESSO STILE DELLA HOME --- */
+        :root {
+            --bg-dark: #120518;       
+            --bg-purple: #2a0e36;     
+            --accent-pink: #ff4bb6;   
+            --accent-purple: #8A2BE2; 
+            --accent-green: #32CD32;  
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--bg-dark);
+            background: radial-gradient(circle at center top, #2a0e36 0%, #120518 80%);
+            color: #ffffff;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* HEADER */
+        header {
+            background: rgba(15, 5, 20, 0.95);
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        nav a {
+            color: #bbb;
+            text-decoration: none;
+            margin-left: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        nav a:hover { color: white; }
+
+        /* CONTENT */
+        .main-content {
+            flex: 1; /* Spinge il footer in basso */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 20px;
+        }
+
+        .download-box {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(30, 10, 40, 0.7);
+            border-radius: 15px;
+            padding: 60px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--accent-pink);
+            font-size: 2.5rem;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .version-tag {
+            background: rgba(255,255,255,0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #ccc;
+            display: inline-block;
+            margin-bottom: 40px;
+        }
+
+        /* BUTTONS */
+        .btn {
+            background: linear-gradient(90deg, #b030d0 0%, #ff4bb6 100%);
+            color: white;
+            padding: 18px 60px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.2rem;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(255, 75, 182, 0.4);
+            transition: transform 0.2s;
+            display: block; /* Un bottone per riga */
+            margin: 20px auto;
+            max-width: 300px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.1);
+        }
+
+        .btn-android {
+            background: linear-gradient(90deg, #228b22 0%, #32CD32 100%);
+            box-shadow: 0 5px 15px rgba(50, 205, 50, 0.4);
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            font-size: 0.85rem;
+            background: #08020a;
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="../" class="logo-text">AESIR LUST</a>
+            <nav>
+                <a href="../">Home</a>
+                <a href="../#about">About</a>
+                <a href="../#news">News</a>
+                <a href="#" style="color: white;">Download</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <div class="download-box">
+            <img src="../Lust-legion-plogo.jpg" alt="Logo" style="width: 150px; margin-bottom: 20px; filter: drop-shadow(0 0 10px rgba(255,75,182,0.5));">
+            
+            <h1>Select Platform</h1>
+            <div class="version-tag">Current Version: v0.12b</div>
+            
+            <p style="margin-bottom: 40px; color: #ddd;">
+                Downloading implies you are 18+ years old.
+            </p>
+
+            <a href="#" class="btn">WINDOWS / MAC</a>
+            <a href="#" class="btn btn-android">ANDROID (APK)</a>
+
+            <p style="margin-top: 30px; font-size: 0.8rem; color: #888;">
+                Issues with the download? Check our <a href="https://www.patreon.com/c/lustlegion" style="color: var(--accent-pink);">Patreon</a>.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 Aesir Lust. Adult Content (18+).
+    </footer>
+
+</body>
+</html>
