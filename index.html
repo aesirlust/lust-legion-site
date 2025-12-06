@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lust Legion - Official Site</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- COLOR PALETTE & ASSETS --- */
+        /* --- COLOR PALETTE --- */
         :root {
-            --bg-dark: #120518;       /* Deepest Purple/Black */
-            --bg-purple: #2a0e36;     /* Mid Purple */
-            --accent-pink: #ff4bb6;   /* Shocking Pink (Art Bar) */
-            --accent-purple: #8A2BE2; /* Electric Purple (Writing Bar) */
-            --accent-green: #32CD32;  /* Lime Green (Programming Bar) */
-            --text-glow: 0 0 10px rgba(255, 75, 182, 0.5); /* Neon Effect */
+            --bg-dark: #120518;       
+            --bg-purple: #2a0e36;     
+            --accent-pink: #ff4bb6;   
+            --accent-purple: #8A2BE2; 
+            --accent-green: #32CD32;  
+            --text-glow: 0 0 10px rgba(255, 75, 182, 0.5); 
         }
 
         body {
@@ -23,7 +23,6 @@
             padding: 0;
             font-family: 'Nunito', sans-serif;
             background-color: var(--bg-dark);
-            /* Radial gradient background */
             background: radial-gradient(circle at center top, #451055 0%, #120518 80%);
             color: #ffffff;
             line-height: 1.6;
@@ -32,12 +31,12 @@
 
         /* --- HEADER & NAVIGATION --- */
         header {
-            background: rgba(20, 5, 30, 0.9);
-            padding: 15px 0;
+            background: rgba(15, 5, 20, 0.95); /* Più scuro e opaco per professionalità */
+            padding: 20px 0;
             position: sticky;
             top: 0;
             backdrop-filter: blur(10px);
-            border-bottom: 2px solid var(--accent-purple);
+            border-bottom: 1px solid rgba(255,255,255,0.1); /* Bordo sottile elegante invece del viola acceso */
             z-index: 1000;
             box-shadow: 0 5px 20px rgba(0,0,0,0.5);
         }
@@ -51,28 +50,31 @@
             align-items: center;
         }
 
+        /* MODIFICA: LOGO PROFESSIONALE */
         .logo-text {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 1.8rem;
-            color: #fff;
+            font-family: 'Montserrat', sans-serif; /* Font serio e dritto */
+            font-size: 1.4rem;
+            color: #ffffff;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: var(--text-glow);
-            font-weight: 600;
+            letter-spacing: 4px; /* Spaziatura ampia = Eleganza */
+            font-weight: 700; /* Grassetto ma non troppo */
+            text-shadow: none; /* RIMOSSO IL NEON */
         }
 
         nav a {
-            color: #ddd;
+            color: #bbb; /* Grigio chiaro invece di bianco sparato */
             text-decoration: none;
-            margin-left: 25px;
-            font-weight: 700;
-            font-size: 1.1rem;
+            margin-left: 30px;
+            font-family: 'Montserrat', sans-serif; /* Anche il menu usa il font serio */
+            font-weight: 600;
+            font-size: 0.9rem;
             transition: 0.3s;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
         nav a:hover {
-            color: var(--accent-pink);
-            text-shadow: 0 0 8px var(--accent-pink);
+            color: white;
+            /* Nessun neon al passaggio del mouse, solo cambio colore pulito */
         }
 
         /* --- HERO SECTION --- */
@@ -82,25 +84,25 @@
             position: relative;
         }
 
-        /* Magic Circle Background Effect */
         .hero::before {
             content: '';
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(138,43,226,0.2) 0%, rgba(0,0,0,0) 70%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(138,43,226,0.15) 0%, rgba(0,0,0,0) 70%);
             z-index: -1;
             border-radius: 50%;
         }
 
         .hero-logo {
-            max-width: 400px;
+            max-width: 450px;
             width: 100%;
-            filter: drop-shadow(0 0 15px rgba(255, 75, 182, 0.6));
-            margin-bottom: 20px;
+            /* Manteniamo il glow sul logo immagine perché fa parte dell'artwork */
+            filter: drop-shadow(0 0 20px rgba(255, 75, 182, 0.4)); 
+            margin-bottom: 30px;
             animation: float 6s ease-in-out infinite;
         }
 
@@ -111,10 +113,11 @@
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             max-width: 700px;
             margin: 0 auto 40px auto;
-            color: #eccafc;
+            color: #dcdcdc;
+            font-weight: 300;
         }
 
         /* --- BUTTONS --- */
@@ -124,101 +127,116 @@
             padding: 15px 50px;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 900;
-            font-size: 1.3rem;
-            border: 3px solid rgba(255,255,255,0.3);
-            box-shadow: 0 0 15px var(--accent-pink);
+            font-weight: 800;
+            font-size: 1.1rem;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(255, 75, 182, 0.4);
             transition: transform 0.2s, box-shadow 0.2s;
             display: inline-block;
             text-transform: uppercase;
+            border: none; /* Rimosso bordo per look più moderno */
         }
         
         .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px var(--accent-pink);
-            filter: brightness(1.2);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 75, 182, 0.6);
+            filter: brightness(1.1);
         }
 
         .btn-android {
             background: linear-gradient(90deg, #228b22 0%, #32CD32 100%);
-            box-shadow: 0 0 15px var(--accent-green);
+            box-shadow: 0 5px 15px rgba(50, 205, 50, 0.4);
         }
-        .btn-android:hover { box-shadow: 0 0 25px var(--accent-green); }
+        .btn-android:hover { box-shadow: 0 10px 25px rgba(50, 205, 50, 0.6); }
 
         /* --- CONTENT BOXES --- */
         .content-box {
             max-width: 900px;
-            margin: 50px auto;
-            background: rgba(42, 14, 54, 0.6);
-            border-radius: 20px;
-            padding: 40px;
-            border: 2px solid #5a1e75;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin: 60px auto;
+            background: rgba(30, 10, 40, 0.7);
+            border-radius: 15px; /* Meno rotondo di prima */
+            padding: 50px;
+            border: 1px solid rgba(255,255,255,0.1); /* Bordo sottile ed elegante */
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
         }
 
         h2 {
-            font-family: 'Fredoka', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             color: var(--accent-pink);
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             margin-top: 0;
-            text-shadow: 0 0 10px rgba(255, 75, 182, 0.4);
-            border-bottom: 2px solid var(--accent-purple);
-            padding-bottom: 10px;
+            margin-bottom: 30px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            text-shadow: none; /* Rimosso effetto neon dai titoli */
+            position: relative;
             display: inline-block;
+        }
+        
+        /* Linea decorativa sotto i titoli */
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent-purple);
+            margin-top: 10px;
+            border-radius: 2px;
         }
 
         /* --- NEWS CARDS --- */
         .news-card {
-            background: #1e0826;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-            border: 2px solid white;
-            position: relative;
-            overflow: hidden;
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--accent-pink); /* Solo linea sinistra, niente bordo completo */
+            transition: background 0.3s;
         }
-
-        .news-card::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 10px;
-            background: var(--accent-pink);
+        
+        .news-card:hover {
+            background: rgba(255,255,255,0.06);
         }
 
         .news-date {
             color: var(--accent-green);
-            font-weight: bold;
-            font-size: 0.9rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.8rem;
             text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
         }
         
         .news-title {
-            font-size: 1.4rem;
-            margin: 5px 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            margin: 0 0 10px 0;
             color: white;
-            font-weight: 800;
+            font-weight: 700;
         }
 
         /* --- FOOTER --- */
         footer {
             text-align: center;
-            padding: 40px;
-            margin-top: 50px;
-            color: #886a94;
-            font-size: 0.9rem;
-            background: #0d0212;
+            padding: 60px 20px;
+            margin-top: 80px;
+            color: #666;
+            font-size: 0.85rem;
+            background: #08020a;
+            font-family: 'Montserrat', sans-serif;
         }
 
         /* Mobile */
         @media (max-width: 768px) {
             .hero h1 { font-size: 3rem; }
-            .btn { width: 80%; display: block; margin: 10px auto; }
+            .btn { width: 100%; display: block; margin: 15px 0; text-align: center; box-sizing: border-box; }
             .container { flex-direction: column; }
-            nav { margin-top: 15px; }
-            nav a { margin: 0 10px; font-size: 1rem; }
+            nav { margin-top: 20px; }
+            nav a { margin: 0 15px; font-size: 0.8rem; }
+            .content-box { padding: 30px; margin: 30px 15px; }
         }
     </style>
 </head>
@@ -226,7 +244,7 @@
 
     <header>
         <div class="container">
-            <div class="logo-text">LUST LEGION</div>
+            <div class="logo-text">AESIR LUST</div>
             <nav>
                 <a href="#about">About</a>
                 <a href="#news">News</a>
@@ -254,7 +272,7 @@
             <br><br>
             Step into the shoes of a college student whose life is turned upside down by an experiment 
             gone... interestingly wrong. While uncovering the truth behind your father's disappearance, 
-            you will navigate campus life, manage your finances, and build relationships with a cast of unique girls.
+            you will navigate campus life, manage your finances, and build relationships with a cast of unique characters.
         </p>
         <p>
             Every choice matters. How will you use your new power?
@@ -273,8 +291,7 @@
             </p>
         </div>
 
-        <div class="news-card" style="border-color: #8A2BE2;">
-            <style>.news-card:nth-child(2)::before { background: #8A2BE2; }</style>
+        <div class="news-card" style="border-left-color: #8A2BE2;">
             <div class="news-date" style="color: #FF69B4;">November 2025</div>
             <div class="news-title">UI Graphic Revamp</div>
             <p>
@@ -285,17 +302,17 @@
 
     <div id="download" class="content-box" style="text-align: center;">
         <h2>Download</h2>
-        <p style="margin-bottom: 30px;">
+        <p style="margin-bottom: 40px; color: #ccc;">
             Current Version: <strong>v0.12b</strong><br>
-            Choose your platform.
+            Select your platform below.
         </p>
 
         <a href="#" class="btn">Windows / Mac (PC)</a>
         <br><br>
         <a href="#" class="btn btn-android">Android (APK)</a>
         
-        <p style="margin-top: 30px; font-size: 0.9rem; color: #aaa;">
-            Support development on <a href="https://www.patreon.com/c/lustlegion" style="color: #FF69B4; text-decoration: none; font-weight: bold;">Patreon</a> to get early access.
+        <p style="margin-top: 40px; font-size: 0.9rem; color: #888;">
+            Support development on <a href="https://www.patreon.com/c/lustlegion" style="color: #FF69B4; text-decoration: none; font-weight: bold;">Patreon</a> to get early access and exclusive content.
         </p>
     </div>
 
