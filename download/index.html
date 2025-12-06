@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* --- STILE BASE (Uguale alla Home) --- */
+        /* --- STILE BASE --- */
         :root {
             --bg-dark: #120518;        
             --bg-purple: #2a0e36;      
@@ -17,12 +17,10 @@
             --accent-purple: #8A2BE2; 
             --accent-green: #32CD32;
             --accent-red: #ff3333; 
-            --patreon-orange: #FF424D;
         }
 
         body {
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             font-family: 'Nunito', sans-serif;
             background-color: var(--bg-dark);
             background: radial-gradient(circle at center top, #2a0e36 0%, #120518 80%);
@@ -42,48 +40,32 @@
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            max-width: 1200px; margin: 0 auto; padding: 0 20px;
+            display: flex; justify-content: space-between; align-items: center;
         }
 
         .logo-text {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.4rem;
-            color: #ffffff;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-weight: 700;
-            text-decoration: none;
+            font-family: 'Montserrat', sans-serif; font-size: 1.4rem; color: #ffffff;
+            text-transform: uppercase; letter-spacing: 4px; font-weight: 700; text-decoration: none;
         }
 
         nav a {
-            color: #bbb;
-            text-decoration: none;
-            margin-left: 30px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s;
+            color: #bbb; text-decoration: none; margin-left: 30px;
+            font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.9rem;
+            text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
         }
         nav a:hover { color: white; }
 
         /* --- HERO BANNER --- */
         .download-hero {
             position: relative;
-            /* Placeholder banner, puoi cambiarlo con una tua immagine */
+            /* Ho messo ../hero_bg.jpg per usare lo stesso sfondo della home, 
+               oppure metti ../banner_bg.png se hai caricato quello specifico */
             background: linear-gradient(rgba(0,0,0,0.3), rgba(18, 5, 24, 1)), url('../hero_bg.jpg'); 
             background-size: cover;
             background-position: center;
             height: 350px; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
@@ -98,20 +80,33 @@
             transform: translateY(20px);
         }
 
+        /* STILE BOTTONE PATREON (UGUALE ALLA HOME) */
         .patreon-btn {
-            background-color: var(--patreon-orange);
+            /* Colore Gradiente */
+            background: linear-gradient(90deg, #FF424D 0%, #ff7b5c 100%);
             color: white;
             font-family: 'Montserrat', sans-serif;
             font-weight: 800;
+            font-size: 1.1rem; /* Dimensione testo uguale alla home */
             padding: 15px 40px;
             border-radius: 50px;
             text-decoration: none;
             text-transform: uppercase;
-            display: inline-block;
-            box-shadow: 0 5px 15px rgba(255, 66, 77, 0.4);
-            transition: transform 0.2s;
+            
+            /* Flex per centrare icona e testo */
+            display: inline-flex; 
+            align-items: center;
+            justify-content: center;
+            
+            box-shadow: 0 5px 20px rgba(255, 66, 77, 0.4);
+            transition: 0.3s;
         }
-        .patreon-btn:hover { transform: scale(1.05); }
+        /* Effetto Hover uguale alla Home */
+        .patreon-btn:hover { 
+            transform: translateY(-3px); 
+            filter: brightness(1.2);
+        }
+        .patreon-btn i { margin-right: 10px; font-size: 1.3rem; }
 
         /* --- GRIGLIA VERSIONI --- */
         .versions-container {
@@ -119,9 +114,9 @@
             margin: 80px auto 50px auto;
             padding: 0 20px;
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Due colonne fisse */
+            grid-template-columns: 1fr 1fr;
             gap: 40px;
-            align-items: start; /* Allinea in alto */
+            align-items: start;
         }
 
         .version-card {
@@ -129,126 +124,84 @@
             border-radius: 12px;
             border: 1px solid rgba(255,255,255,0.05);
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
+            display: flex; flex-direction: column;
             transition: transform 0.3s;
-            height: 100%; /* Altezza uguale per entrambe */
+            height: 100%;
         }
-        
         .version-card:hover {
             transform: translateY(-5px);
             background: rgba(30, 10, 40, 0.8);
             border-color: var(--accent-purple);
         }
 
-        /* Header Card */
         .card-header {
-            padding: 25px;
-            text-align: center;
+            padding: 25px; text-align: center;
             background: rgba(0,0,0,0.2);
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
-        
         .card-header h2 {
-            margin: 0;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.8rem;
-            color: white;
+            margin: 0; font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem; color: white;
         }
-        
         .version-number {
-            color: #888;
-            font-family: 'Nunito', monospace;
-            margin-top: 5px;
-            display: block;
+            color: #888; font-family: 'Nunito', monospace;
+            margin-top: 5px; display: block;
         }
 
-        /* Features */
-        .features-list {
-            padding: 30px;
-            flex-grow: 1; 
-        }
+        .features-list { padding: 30px; flex-grow: 1; }
         
         .feature-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-            color: #ddd;
-            border-bottom: 1px solid rgba(255,255,255,0.03);
-            padding-bottom: 8px;
+            display: flex; align-items: center; margin-bottom: 15px;
+            font-size: 0.95rem; color: #ddd;
+            border-bottom: 1px solid rgba(255,255,255,0.03); padding-bottom: 8px;
         }
 
         .icon {
-            margin-right: 15px;
-            font-weight: bold;
-            font-size: 1.2rem;
-            min-width: 20px; /* Allineamento icone */
-            text-align: center;
+            margin-right: 15px; font-weight: bold; font-size: 1.2rem;
+            min-width: 20px; text-align: center;
         }
         .check { color: var(--accent-green); }
         .cross { color: var(--accent-red); opacity: 0.5; }
 
-        /* Footer Card */
         .card-footer {
-            padding: 30px;
-            text-align: center;
+            padding: 30px; text-align: center;
             background: rgba(0,0,0,0.2);
             border-top: 1px solid rgba(255,255,255,0.05);
         }
 
         .dl-btn {
-            display: block;
-            width: 100%;
-            padding: 15px 0;
-            border-radius: 8px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            text-transform: uppercase;
-            text-decoration: none;
-            color: white;
-            transition: 0.2s;
-            box-sizing: border-box;
-            margin-bottom: 15px;
+            display: block; width: 100%; padding: 15px 0;
+            border-radius: 8px; font-family: 'Montserrat', sans-serif;
+            font-weight: 800; text-transform: uppercase; text-decoration: none;
+            color: white; transition: 0.2s; box-sizing: border-box; margin-bottom: 15px;
         }
 
-        .btn-stable {
-            background: #2a2a40;
-            border: 2px solid #444;
-        }
+        .btn-stable { background: #2a2a40; border: 2px solid #444; }
         .btn-stable:hover { background: #3a3a55; border-color: #666; }
 
         .btn-latest {
             background: linear-gradient(90deg, #b030d0 0%, #ff4bb6 100%);
-            box-shadow: 0 0 15px rgba(255, 75, 182, 0.3);
-            border: none;
+            box-shadow: 0 0 15px rgba(255, 75, 182, 0.3); border: none;
         }
         .btn-latest:hover { box-shadow: 0 0 25px rgba(255, 75, 182, 0.6); filter: brightness(1.1); }
 
-        .alt-links {
-            font-size: 0.85rem; color: #aaa;
-        }
+        .alt-links { font-size: 0.85rem; color: #aaa; }
         .alt-links a {
             color: var(--accent-pink); text-decoration: none; font-weight: bold; margin: 0 3px;
         }
         .alt-links a:hover { text-decoration: underline; color: white; }
 
-        /* FOOTER PAGE */
         footer {
-            text-align: center;
-            padding: 60px 20px;
-            color: #666;
-            font-size: 0.85rem;
-            background: #08020a;
-            font-family: 'Montserrat', sans-serif;
-            margin-top: 50px;
+            text-align: center; padding: 60px 20px;
+            color: #666; font-size: 0.85rem; background: #08020a;
+            font-family: 'Montserrat', sans-serif; margin-top: 50px;
         }
 
-        /* Mobile Responsive */
         @media (max-width: 768px) {
-            .versions-container { grid-template-columns: 1fr; } /* Colonna singola su mobile */
+            .versions-container { grid-template-columns: 1fr; }
             .download-hero { height: 300px; }
-            .cta-overlay { width: 80%; padding: 20px; }
+            .cta-overlay { width: 85%; padding: 25px 15px; }
+            .patreon-btn { font-size: 0.9rem; padding: 12px 25px; width: 100%; box-sizing: border-box;}
         }
     </style>
 </head>
@@ -266,11 +219,11 @@
     </header>
 
     <div class="download-hero">
-        <div class="hero-content">
-            <div class="hero-buttons">
-                <a href="https://www.patreon.com/c/lustlegion" target="_blank" class="btn-hero btn-patreon">
-                    <i class="fab fa-patreon"></i> Become a Patron
-                </a>
+        <div class="cta-overlay">
+            <h3 style="margin: 0 0 15px 0; color: #fff; font-family: 'Montserrat';">SUPPORT DEVELOPMENT</h3>
+            <a href="https://www.patreon.com/c/lustlegion" target="_blank" class="patreon-btn">
+                <i class="fab fa-patreon"></i> BECOME A PATRON
+            </a>
         </div>
     </div>
 
@@ -291,12 +244,11 @@
             </div>
 
             <div class="card-footer">
-                <a href="https://github.com/aesirlust/lust-legion-site/releases/download/0.11b_PC/LustLegion-0.11b-pc.zip" class="dl-btn btn-stable">DOWNLOAD v0.11b (Windows)</a>
-                
+                <a href="INCOLLA_QUI_LINK_WINDOWS_PUBLIC" class="dl-btn btn-stable">DOWNLOAD v0.11b (Windows)</a>
                 <div class="alt-links">
                     Also available on 
-                    <a href="https://github.com/aesirlust/lust-legion-site/releases/download/0.11b_PC/LustLegion-0.11b-mac.zip"><i class="fab fa-apple"></i> Mac</a> and 
-                    <a href="https://github.com/aesirlust/lust-legion-site/releases/download/0.11b_PC/LustLegion-0.11b.apk"><i class="fab fa-android"></i> Android</a>
+                    <a href="INCOLLA_QUI_LINK_MAC_PUBLIC"><i class="fab fa-apple"></i> Mac</a> and 
+                    <a href="INCOLLA_QUI_LINK_ANDROID_PUBLIC"><i class="fab fa-android"></i> Android</a>
                 </div>
             </div>
         </div>
@@ -317,7 +269,6 @@
 
             <div class="card-footer">
                 <a href="INCOLLA_QUI_LINK_WINDOWS_LATEST" class="dl-btn btn-latest">DOWNLOAD v0.12 (Windows)</a>
-                
                 <div class="alt-links">
                     Also available on 
                     <a href="INCOLLA_QUI_LINK_MAC_LATEST"><i class="fab fa-apple"></i> Mac</a> and 
