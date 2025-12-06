@@ -6,17 +6,18 @@
     <title>Download - Lust Legion</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         /* --- STILE BASE (Uguale alla Home) --- */
         :root {
-            --bg-dark: #120518;       
-            --bg-purple: #2a0e36;     
-            --accent-pink: #ff4bb6;   
+            --bg-dark: #120518;        
+            --bg-purple: #2a0e36;      
+            --accent-pink: #ff4bb6;    
             --accent-purple: #8A2BE2; 
             --accent-green: #32CD32;
-            --accent-red: #ff3333; /* Nuovo: per le croci nelle feature */
-            --patreon-orange: #FF424D; /* Colore brand Patreon */
+            --accent-red: #ff3333; 
+            --patreon-orange: #FF424D;
         }
 
         body {
@@ -72,21 +73,20 @@
         }
         nav a:hover { color: white; }
 
-        /* --- NUOVA SEZIONE BANNER (Stile Summertime Saga) --- */
+        /* --- HERO BANNER --- */
         .download-hero {
             position: relative;
-            /* Placeholder: Carica un'immagine larga tipo 1920x400px chiamata 'download_banner.jpg' */
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(18, 5, 24, 1)), url('https://via.placeholder.com/1920x400?text=Wide+Banner+Image'); 
+            /* Placeholder banner, puoi cambiarlo con una tua immagine */
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(18, 5, 24, 1)), url('https://via.placeholder.com/1920x400?text=Download+Page+Banner'); 
             background-size: cover;
             background-position: center;
-            height: 350px; /* Altezza fissa */
+            height: 350px; 
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        /* Box Patreon sovrapposto al banner */
         .cta-overlay {
             background: rgba(18, 5, 24, 0.85);
             padding: 30px 50px;
@@ -95,7 +95,7 @@
             backdrop-filter: blur(10px);
             text-align: center;
             box-shadow: 0 0 20px rgba(0,0,0,0.8);
-            transform: translateY(20px); /* Leggero offset */
+            transform: translateY(20px);
         }
 
         .patreon-btn {
@@ -116,11 +116,12 @@
         /* --- GRIGLIA VERSIONI --- */
         .versions-container {
             max-width: 1100px;
-            margin: 80px auto 50px auto; /* Margine alto per staccarsi dal banner */
+            margin: 80px auto 50px auto;
             padding: 0 20px;
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Due colonne uguali */
+            grid-template-columns: 1fr 1fr; /* Due colonne fisse */
             gap: 40px;
+            align-items: start; /* Allinea in alto */
         }
 
         .version-card {
@@ -131,6 +132,7 @@
             display: flex;
             flex-direction: column;
             transition: transform 0.3s;
+            height: 100%; /* Altezza uguale per entrambe */
         }
         
         .version-card:hover {
@@ -139,7 +141,7 @@
             border-color: var(--accent-purple);
         }
 
-        /* Header della card (Titolo versione) */
+        /* Header Card */
         .card-header {
             padding: 25px;
             text-align: center;
@@ -161,10 +163,10 @@
             display: block;
         }
 
-        /* Lista Features */
+        /* Features */
         .features-list {
             padding: 30px;
-            flex-grow: 1; /* Occupa tutto lo spazio disponibile */
+            flex-grow: 1; 
         }
         
         .feature-item {
@@ -181,15 +183,18 @@
             margin-right: 15px;
             font-weight: bold;
             font-size: 1.2rem;
+            min-width: 20px; /* Allineamento icone */
+            text-align: center;
         }
         .check { color: var(--accent-green); }
         .cross { color: var(--accent-red); opacity: 0.5; }
 
-        /* Footer della card (Bottone download) */
+        /* Footer Card */
         .card-footer {
             padding: 30px;
             text-align: center;
             background: rgba(0,0,0,0.2);
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
 
         .dl-btn {
@@ -204,16 +209,15 @@
             color: white;
             transition: 0.2s;
             box-sizing: border-box;
+            margin-bottom: 15px;
         }
 
-        /* Stile Bottone "Old/Stable" */
         .btn-stable {
             background: #2a2a40;
             border: 2px solid #444;
         }
         .btn-stable:hover { background: #3a3a55; border-color: #666; }
 
-        /* Stile Bottone "New/Latest" */
         .btn-latest {
             background: linear-gradient(90deg, #b030d0 0%, #ff4bb6 100%);
             box-shadow: 0 0 15px rgba(255, 75, 182, 0.3);
@@ -221,8 +225,15 @@
         }
         .btn-latest:hover { box-shadow: 0 0 25px rgba(255, 75, 182, 0.6); filter: brightness(1.1); }
 
+        .alt-links {
+            font-size: 0.85rem; color: #aaa;
+        }
+        .alt-links a {
+            color: var(--accent-pink); text-decoration: none; font-weight: bold; margin: 0 3px;
+        }
+        .alt-links a:hover { text-decoration: underline; color: white; }
 
-        /* FOOTER */
+        /* FOOTER PAGE */
         footer {
             text-align: center;
             padding: 60px 20px;
@@ -235,7 +246,7 @@
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
-            .versions-container { grid-template-columns: 1fr; }
+            .versions-container { grid-template-columns: 1fr; } /* Colonna singola su mobile */
             .download-hero { height: 300px; }
             .cta-overlay { width: 80%; padding: 20px; }
         }
@@ -272,31 +283,21 @@
             </div>
             
             <div class="features-list">
-                <div class="feature-item">
-                    <span class="icon check">✔</span> Playable until Chapter 2
-                </div>
-                <div class="feature-item">
-                    <span class="icon check">✔</span> Standard Definition (720p)
-                </div>
-                <div class="feature-item">
-                    <span class="icon cross">✘</span> No Gallery Mode
-                </div>
-                <div class="feature-item">
-                    <span class="icon cross">✘</span> Old UI Design
-                </div>
-                <div class="feature-item">
-                    <span class="icon cross">✘</span> Late Updates
-                </div>
+                <div class="feature-item"><span class="icon check">✔</span> Playable until Chapter 2</div>
+                <div class="feature-item"><span class="icon check">✔</span> Standard Definition (720p)</div>
+                <div class="feature-item"><span class="icon cross">✘</span> No Gallery Mode</div>
+                <div class="feature-item"><span class="icon cross">✘</span> Old UI Design</div>
+                <div class="feature-item"><span class="icon cross">✘</span> Late Updates</div>
             </div>
 
             <div class="card-footer">
-                <a href="INCOLLA_QUI_LINK_WINDOWS_DA_GITHUB" class="dl-btn btn-latest">DOWNLOAD v0.12 (Windows)</a>
-    
-            <div style="margin-top: 15px; font-size: 0.85rem; color: #aaa;">
-                Also available on 
-                <a href="INCOLLA_QUI_LINK_MAC_DA_GITHUB" style="color: var(--accent-pink); text-decoration: none; font-weight: bold;">Mac</a>
-                and 
-                <a href="INCOLLA_QUI_LINK_ANDROID_DA_GITHUB" style="color: var(--accent-pink); text-decoration: none; font-weight: bold;">Android</a>
+                <a href="INCOLLA_QUI_LINK_WINDOWS_PUBLIC" class="dl-btn btn-stable">DOWNLOAD v0.11b (Windows)</a>
+                
+                <div class="alt-links">
+                    Also available on 
+                    <a href="INCOLLA_QUI_LINK_MAC_PUBLIC"><i class="fab fa-apple"></i> Mac</a> and 
+                    <a href="INCOLLA_QUI_LINK_ANDROID_PUBLIC"><i class="fab fa-android"></i> Android</a>
+                </div>
             </div>
         </div>
 
@@ -307,28 +308,20 @@
             </div>
             
             <div class="features-list">
-                <div class="feature-item">
-                    <span class="icon check">✔</span> Playable until Chapter 3
-                </div>
-                <div class="feature-item">
-                    <span class="icon check">✔</span> High Definition (1080p)
-                </div>
-                <div class="feature-item">
-                    <span class="icon check">✔</span> Full Gallery Unlocked
-                </div>
-                <div class="feature-item">
-                    <span class="icon check">✔</span> New UI & Animations
-                </div>
-                <div class="feature-item">
-                    <span class="icon check">✔</span> 3 New Scenes
-                </div>
+                <div class="feature-item"><span class="icon check">✔</span> Playable until Chapter 3</div>
+                <div class="feature-item"><span class="icon check">✔</span> High Definition (1080p)</div>
+                <div class="feature-item"><span class="icon check">✔</span> Full Gallery Unlocked</div>
+                <div class="feature-item"><span class="icon check">✔</span> New UI & Animations</div>
+                <div class="feature-item"><span class="icon check">✔</span> 3 New Scenes</div>
             </div>
 
             <div class="card-footer">
-                <a href="#" class="dl-btn btn-latest">DOWNLOAD v0.12</a>
+                <a href="INCOLLA_QUI_LINK_WINDOWS_LATEST" class="dl-btn btn-latest">DOWNLOAD v0.12 (Windows)</a>
                 
-                <div style="margin-top: 10px; font-size: 0.8rem; color: #aaa;">
-                    Also available on <a href="#" style="color: var(--accent-pink);">Android</a>
+                <div class="alt-links">
+                    Also available on 
+                    <a href="INCOLLA_QUI_LINK_MAC_LATEST"><i class="fab fa-apple"></i> Mac</a> and 
+                    <a href="INCOLLA_QUI_LINK_ANDROID_LATEST"><i class="fab fa-android"></i> Android</a>
                 </div>
             </div>
         </div>
