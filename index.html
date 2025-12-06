@@ -6,7 +6,6 @@
     <title>Lust Legion - Official Site</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         /* --- IMPOSTAZIONI DI BASE --- */
@@ -16,7 +15,6 @@
             --accent-pink: #ff4bb6;    
             --accent-purple: #8A2BE2; 
             --patreon-red: #FF424D;
-            --download-green: #32CD32;
         }
 
         body {
@@ -25,19 +23,19 @@
             background-color: var(--bg-dark);
             color: #ffffff;
             line-height: 1.6;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Evita scroll orizzontale */
         }
 
-        /* --- HEADER FISSO --- */
+        /* --- HEADER (Menu in alto) --- */
         header {
-            background: rgba(15, 5, 20, 0.8);
+            background: rgba(15, 5, 20, 0.9); /* Leggermente più trasparente */
             padding: 15px 0;
-            position: fixed;
+            position: fixed; /* FISSO IN ALTO */
             width: 100%;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(5px);
             border-bottom: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
         }
 
         .nav-container {
@@ -55,129 +53,93 @@
         }
 
         nav a {
-            color: #ccc; text-decoration: none; margin-left: 25px; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
+            color: #bbb; text-decoration: none; margin-left: 30px; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
         }
-        nav a:hover { color: white; text-shadow: 0 0 5px var(--accent-pink); }
+        nav a:hover { color: white; }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO SECTION (Immagine gigante a tutto schermo) --- */
         .hero-section {
-            /* CAMBIA 'bg_map.jpg' con la tua immagine mappa/sfondo */
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(18, 5, 24, 0.8)), url('bg_map.jpg');
+            /* ATTENZIONE: Sostituisci 'hero-bg.jpg' con la tua immagine di sfondo grande */
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(18, 5, 24, 1)), url('https://via.placeholder.com/1920x1080?text=Hero+Image+1920x1080');
             background-size: cover;
             background-position: center;
-            height: 100vh;
+            height: 100vh; /* Altezza 100% dello schermo */
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding-top: 60px;
+            padding-top: 60px; /* Per compensare il menu fisso */
+            box-sizing: border-box;
         }
 
         .hero-content {
-            max-width: 900px;
+            max-width: 800px;
             padding: 20px;
-            animation: fadeIn 1s ease-out;
+            animation: fadeIn 1.5s ease-out;
         }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
         .hero-logo {
-            max-width: 600px; width: 100%;
-            filter: drop-shadow(0 0 20px rgba(0,0,0,0.5));
-            margin-bottom: 30px;
-            /* Animazione galleggiamento opzionale */
-            animation: float 4s ease-in-out infinite;
+            max-width: 500px; width: 100%;
+            filter: drop-shadow(0 0 30px rgba(255, 75, 182, 0.5));
+            margin-bottom: 20px;
         }
-        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
+
+        .hero-text { font-size: 1.3rem; color: #eee; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto; }
 
         /* Pulsanti Hero */
-        .hero-buttons { display: flex; justify-content: center; gap: 20px; margin-top: 20px; flex-wrap: wrap; }
+        .hero-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
 
         .btn-hero {
-            padding: 15px 35px; border-radius: 4px; text-decoration: none; font-weight: 800; font-size: 1rem; font-family: 'Montserrat', sans-serif; text-transform: uppercase; display: flex; align-items: center; transition: 0.2s; border: none; cursor: pointer;
+            padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 1rem; font-family: 'Montserrat', sans-serif; text-transform: uppercase; display: flex; align-items: center; transition: transform 0.2s, box-shadow 0.2s;
         }
-        .btn-hero:hover { transform: translateY(-2px); filter: brightness(1.1); }
-        .btn-hero i { margin-right: 10px; font-size: 1.2rem; }
+        .btn-hero:hover { transform: translateY(-3px); filter: brightness(1.1); }
+        .btn-hero img { width: 24px; margin-right: 10px; }
 
-        .btn-patreon { background: #A83636; color: white; box-shadow: 0 4px 0 #7a2626; } /* Rosso scuro stile pulsante */
-        .btn-download { background: #458a45; color: white; box-shadow: 0 4px 0 #2e5c2e; } /* Verde scuro stile pulsante */
+        .btn-patreon { background: var(--patreon-red); color: white; box-shadow: 0 5px 15px rgba(255, 66, 77, 0.4); }
+        .btn-download { background: var(--accent-green); color: #120518; box-shadow: 0 5px 15px rgba(50, 205, 50, 0.4); }
 
-        /* --- SEZIONI CONTENUTO --- */
-        .section { padding: 80px 20px; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .container-content { max-width: 1100px; margin: 0 auto; }
+        /* --- SEZIONI (Bande orizzontali) --- */
+        .section {
+            padding: 100px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .section-content { max-width: 1000px; margin: 0 auto; text-align: center; }
 
         h2 {
-            font-family: 'Montserrat', sans-serif; color: #8fa0c9; /* Colore simile allo screen */
-            font-size: 2rem; margin-top: 0; margin-bottom: 20px; font-weight: 400;
+            font-family: 'Montserrat', sans-serif; color: var(--accent-pink); font-size: 2.5rem; margin-top: 0; margin-bottom: 40px; font-weight: 800; letter-spacing: -1px; position: relative; display: inline-block;
         }
+        h2::after { content: ''; display: block; width: 80px; height: 4px; background: var(--accent-purple); margin: 15px auto 0 auto; border-radius: 2px; }
 
-        /* ABOUT LAYOUT (Testo a SX, Immagine a DX) */
-        #about { background-color: #1a1d29; /* Sfondo scuro bluastro */ }
-        
-        .about-layout {
-            display: flex;
-            align-items: flex-start;
-            gap: 50px;
-        }
+        /* Sezione About */
+        #about { background-color: var(--bg-purple); }
+        .about-text { font-size: 1.1rem; color: #ccc; line-height: 1.8; max-width: 800px; margin: 0 auto; }
 
-        .about-text-col { flex: 1; }
-        
-        .about-description {
-            font-size: 0.95rem; color: #cbd5e1; margin-bottom: 30px; text-align: justify;
-        }
-
-        .about-image-col {
-            flex: 0 0 300px; /* Larghezza fissa immagine personaggio */
-            text-align: center;
-        }
-        .character-img {
-            max-width: 100%;
-            height: auto;
-            filter: drop-shadow(0 0 15px rgba(0,0,0,0.5));
-            transform: rotate(2deg); /* Leggera inclinazione simpatica */
-        }
-
-        /* Lista Feature (Fetishes/Genres) */
-        .features-title { font-family: 'Montserrat'; font-size: 1.2rem; color: #8fa0c9; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 5px;}
-        .features-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr; /* Due colonne */
-            gap: 10px 20px;
-            font-size: 0.9rem;
-            color: #aaa;
-        }
-        .feature-item i { color: #8fa0c9; margin-right: 8px; }
-
-        /* SCREENSHOTS GRID */
-        #screenshots { background-color: #12141d; }
-        
+        /* Sezione Screenshots */
+        #screenshots { background-color: var(--bg-dark); }
         .screenshot-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr); /* 4 Colonne esatte come nello screen */
-            gap: 15px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Griglia responsive automatica */
+            gap: 20px;
+            margin-top: 50px;
         }
-
         .screenshot-item {
-            border-radius: 4px;
-            overflow: hidden;
-            border: 1px solid #333;
-            transition: transform 0.2s;
-            cursor: pointer;
+            border-radius: 10px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.5); transition: transform 0.3s; border: 2px solid transparent;
         }
-        .screenshot-item:hover { transform: scale(1.05); border-color: var(--accent-pink); }
-        .screenshot-item img { width: 100%; height: auto; display: block; aspect-ratio: 16/9; object-fit: cover; }
+        .screenshot-item:hover { transform: scale(1.03); border-color: var(--accent-pink); }
+        .screenshot-item img { width: 100%; height: auto; display: block; }
 
-        /* FOOTER */
-        footer { text-align: center; padding: 40px 20px; background: #0b0c11; color: #555; font-size: 0.8rem; font-family: 'Montserrat'; }
+        /* --- FOOTER --- */
+        footer { text-align: center; padding: 60px 20px; background: #08020a; color: #666; font-size: 0.85rem; font-family: 'Montserrat'; }
 
-        /* Mobile Responsive */
+        /* Mobile */
         @media (max-width: 768px) {
-            .about-layout { flex-direction: column-reverse; } /* Su mobile immagine sopra o sotto */
-            .about-image-col { margin: 0 auto 30px auto; }
-            .screenshot-grid { grid-template-columns: 1fr 1fr; } /* 2 colonne su tablet */
+            .hero-text { font-size: 1.1rem; }
+            .btn-hero { width: 100%; justify-content: center; }
             .nav-container { flex-direction: column; }
-            nav { margin-top: 15px; }
-            .hero-section { background-position: center bottom; }
+            nav { margin-top: 20px; }
+            .section { padding: 60px 20px; }
         }
     </style>
 </head>
@@ -185,13 +147,11 @@
 
     <header>
         <div class="nav-container">
-            <a href="#" class="logo-text">KOMPAS</a> <nav>
+            <a href="#" class="logo-text">AESIR LUST</a>
+            <nav>
                 <a href="#about">About</a>
-                <a href="#news">News</a>
+                <a href="#screenshots">Screenshots</a>
                 <a href="download/">Download</a>
-                <a href="#">Translations</a>
-                <a href="#">Wiki</a>
-                <a href="#">Discord</a>
             </nav>
         </div>
     </header>
@@ -200,70 +160,55 @@
         <div class="hero-content">
             <img src="Lust-legion-plogo.jpg" alt="Lust Legion Logo" class="hero-logo">
             
+            <p class="hero-text">
+                A Point & Click Visual Novel. Solve mysteries, manage life, build relationships, and wield unexpected power.
+            </p>
+
             <div class="hero-buttons">
                 <a href="https://www.patreon.com/c/lustlegion" target="_blank" class="btn-hero btn-patreon">
-                    <i class="fab fa-patreon"></i> Become a Patron
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Patreon_logo.svg" alt="Patreon">
+                    Become a Patron
                 </a>
                 <a href="download/" class="btn-hero btn-download">
-                    <i class="fas fa-download"></i> Download Game
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Download_icon_white.svg" alt="Download" style="filter: invert(1);"> Download Game
                 </a>
             </div>
         </div>
     </section>
 
     <section id="about" class="section">
-        <div class="container-content">
-            <div class="about-layout">
-                <div class="about-text-col">
-                    <h2>About Lust Legion</h2>
-                    <div class="about-description">
-                        <p>
-                            Lust Legion is an <strong>adult orientated</strong> high quality visual novel, currently in development.
-                            Set in a mysterious university, you play as a student navigating a world of secrets, power, and desire.
-                        </p>
-                        <p>
-                            The game features over <strong>20 characters</strong> to meet and interact with, unique locations, 
-                            and a point & click inventory system. Uncover the truth about the Legion while managing your
-                            relationships and studies.
-                        </p>
-                        <p>
-                            You can download the game for free, but by supporting on Patreon you gain exclusive rewards
-                            such as early access, walkthroughs, and high-resolution galleries.
-                        </p>
-                    </div>
-
-                    <div class="features-title">Genres & Themes</div>
-                    <div class="features-list">
-                        <div class="feature-item"><i class="fas fa-check"></i> Visual Novel</div>
-                        <div class="feature-item"><i class="fas fa-check"></i> Point & Click</div>
-                        <div class="feature-item"><i class="fas fa-check"></i> Mystery</div>
-                        <div class="feature-item"><i class="fas fa-check"></i> Romance</div>
-                        <div class="feature-item"><i class="fas fa-check"></i> University Life</div>
-                        <div class="feature-item"><i class="fas fa-check"></i> Corruption</div>
-                        </div>
-                </div>
-
-                <div class="about-image-col">
-                    <img src="character_mc.png" alt="Main Character" class="character-img">
-                </div>
+        <div class="section-content">
+            <h2>About the Game</h2>
+            <div class="about-text">
+                <p>
+                    Lust Legion is a hand-drawn <strong>Point & Click Visual Novel</strong> set in a vibrant university world.
+                </p>
+                <p>
+                    Step into the shoes of a college student whose life is turned upside down by an experiment 
+                    gone... interestingly wrong. While uncovering the truth behind your father's disappearance, 
+                    you will navigate campus life, manage your finances, and build relationships with a cast of unique characters.
+                </p>
+                <p>
+                    Your choices shape the story. How will you use your new power?
+                </p>
             </div>
         </div>
     </section>
 
     <section id="screenshots" class="section">
-        <div class="container-content">
+        <div class="section-content">
+            <h2>Game Screenshots</h2>
+            <p style="color: #aaa; max-width: 600px; margin: 0 auto;">A glimpse into the art and gameplay of Lust Legion. (Placeholder images shown)</p>
+            
             <div class="screenshot-grid">
                 <div class="screenshot-item">
-                    <img src="screen1.jpg" alt="Gameplay 1">
+                    <img src="https://via.placeholder.com/600x337?text=Screenshot+1" alt="Gameplay 1">
                 </div>
                 <div class="screenshot-item">
-                    <img src="screen2.jpg" alt="Gameplay 2">
+                    <img src="https://via.placeholder.com/600x337?text=Screenshot+2" alt="Gameplay 2">
                 </div>
                 <div class="screenshot-item">
-                    <img src="screen3.jpg" alt="Gameplay 3">
-                </div>
-                <div class="screenshot-item">
-                    <img src="screen4.jpg" alt="Gameplay 4">
+                    <img src="https://via.placeholder.com/600x337?text=Screenshot+3" alt="Gameplay 3">
                 </div>
             </div>
         </div>
