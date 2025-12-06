@@ -8,14 +8,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- COLOR PALETTE --- */
+        /* --- IMPOSTAZIONI DI BASE --- */
         :root {
             --bg-dark: #120518;        
             --bg-purple: #2a0e36;      
             --accent-pink: #ff4bb6;    
             --accent-purple: #8A2BE2; 
             --accent-green: #32CD32;  
-            --text-glow: 0 0 10px rgba(255, 75, 182, 0.5); 
         }
 
         body {
@@ -23,15 +22,219 @@
             padding: 0;
             font-family: 'Nunito', sans-serif;
             background-color: var(--bg-dark);
+            /* Gradiente di sfondo */
             background: radial-gradient(circle at center top, #451055 0%, #120518 80%);
             color: #ffffff;
             line-height: 1.6;
             min-height: 100vh;
         }
 
-        /* --- HEADER & NAVIGATION --- */
+        /* --- HEADER (Menu in alto) --- */
         header {
             background: rgba(15, 5, 20, 0.95);
             padding: 20px 0;
             position: sticky;
-            top: 0
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 700;
+        }
+
+        nav a {
+            color: #bbb;
+            text-decoration: none;
+            margin-left: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        nav a:hover { color: white; }
+
+        /* --- HERO SECTION (Immagine grande) --- */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+        }
+
+        .hero-logo {
+            max-width: 450px;
+            width: 100%;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 0 20px rgba(255, 75, 182, 0.4));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Animazione galleggiamento logo */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            color: #dcdcdc;
+            font-weight: 300;
+        }
+
+        /* --- BOTTONI --- */
+        .btn {
+            background: linear-gradient(90deg, #b030d0 0%, #ff4bb6 100%);
+            color: white;
+            padding: 15px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(255, 75, 182, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 75, 182, 0.6);
+        }
+
+        .btn-android {
+            background: linear-gradient(90deg, #228b22 0%, #32CD32 100%);
+            box-shadow: 0 5px 15px rgba(50, 205, 50, 0.4);
+        }
+        .btn-android:hover { box-shadow: 0 10px 25px rgba(50, 205, 50, 0.6); }
+
+        /* --- BOX CONTENUTI --- */
+        .content-box {
+            max-width: 900px;
+            margin: 60px auto;
+            background: rgba(30, 10, 40, 0.7);
+            border-radius: 15px;
+            padding: 50px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+        }
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--accent-pink);
+            font-size: 2.2rem;
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-weight: 800;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent-purple);
+            margin-top: 10px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            margin-top: 80px;
+            color: #666;
+            font-size: 0.85rem;
+            background: #08020a;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-logo { max-width: 80%; }
+            .btn { width: 100%; box-sizing: border-box; text-align: center; margin: 10px 0; }
+            .container { flex-direction: column; }
+            nav { margin-top: 20px; }
+            nav a { margin: 0 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo-text">AESIR LUST</div>
+            <nav>
+                <a href="#about">About</a>
+                <a href="download/">Download</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <img src="Lust-legion-plogo.jpg" alt="Lust Legion Logo" class="hero-logo">
+        
+        <p>
+            Welcome to University. A mystery to solve, relationships to build, 
+            and unexpected power in your hands.
+        </p>
+        
+        <br>
+        <a href="download/" class="btn">PLAY NOW</a>
+    </div>
+
+    <div id="about" class="content-box">
+        <h2>About the Game</h2>
+        <p>
+            Lust Legion is a hand-drawn <strong>Point & Click Visual Novel</strong>.
+            <br><br>
+            Step into the shoes of a college student whose life is turned upside down by an experiment 
+            gone... interestingly wrong. While uncovering the truth behind your father's disappearance, 
+            you will navigate campus life, manage your finances, and build relationships with a cast of unique characters.
+        </p>
+        <p>
+            Every choice matters. How will you use your new power?
+        </p>
+    </div>
+
+    <div id="download" class="content-box" style="text-align: center;">
+        <h2>Download</h2>
+        <p style="margin-bottom: 40px; color: #ccc;">
+            Current Version: <strong>v0.12b</strong><br>
+            Select your platform below.
+        </p>
+        
+        <a href="download/" class="btn">Windows / Mac (PC)</a>
+        <br><br>
+        <a href="download/" class="btn btn-android">Android (APK)</a>
+        
+        <p style="margin-top: 40px; font-size: 0.9rem; color: #888;">
+            Support development on <a href="https://www.patreon.com/c/lustlegion" style="color: #FF69B4; text-decoration: none; font-weight: bold;">Patreon</a>.
+        </p>
+    </div>
+
+    <footer>
+        &copy; 2025 Aesir Lust. Adult Content (18+).<br>
+        All rights reserved.
+    </footer>
+
+</body>
+</html>
