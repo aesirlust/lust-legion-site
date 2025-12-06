@@ -56,52 +56,45 @@
         }
         nav a:hover { color: white; }
 
-        /* --- HERO BANNER --- */
+        /* --- HERO BANNER MODIFICATO --- */
         .download-hero {
             position: relative;
-            /* Ho messo ../hero_bg.jpg per usare lo stesso sfondo della home, 
-               oppure metti ../banner_bg.png se hai caricato quello specifico */
+            /* Assicurati che il percorso dell'immagine sia corretto */
             background: linear-gradient(rgba(0,0,0,0.3), rgba(18, 5, 24, 1)), url('../hero_bg.jpg'); 
             background-size: cover;
             background-position: center;
             height: 350px; 
-            display: flex; align-items: center; justify-content: center;
+            display: flex; 
+            align-items: center; 
+            /* Modifica per spostare il contenuto a destra */
+            justify-content: flex-end; 
+            /* Aggiunge spazio a destra per non attaccare il bottone al bordo */
+            padding-right: 10%; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-sizing: border-box; /* Assicura che il padding non aumenti la larghezza totale */
         }
 
-        .cta-overlay {
-            background: rgba(18, 5, 24, 0.85);
-            padding: 30px 50px;
-            border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            text-align: center;
-            box-shadow: 0 0 20px rgba(0,0,0,0.8);
-            transform: translateY(20px);
-        }
+        /* La classe .cta-overlay è stata rimossa poiché non serve più */
 
-        /* STILE BOTTONE PATREON (UGUALE ALLA HOME) */
+        /* STILE BOTTONE PATREON */
         .patreon-btn {
-            /* Colore Gradiente */
             background: linear-gradient(90deg, #FF424D 0%, #ff7b5c 100%);
             color: white;
             font-family: 'Montserrat', sans-serif;
             font-weight: 800;
-            font-size: 1.1rem; /* Dimensione testo uguale alla home */
+            font-size: 1.1rem;
             padding: 15px 40px;
             border-radius: 50px;
             text-decoration: none;
             text-transform: uppercase;
-            
-            /* Flex per centrare icona e testo */
             display: inline-flex; 
             align-items: center;
             justify-content: center;
-            
             box-shadow: 0 5px 20px rgba(255, 66, 77, 0.4);
             transition: 0.3s;
+            /* Aggiunto un margine inferiore per sicurezza su mobile */
+            margin-bottom: 20px; 
         }
-        /* Effetto Hover uguale alla Home */
         .patreon-btn:hover { 
             transform: translateY(-3px); 
             filter: brightness(1.2);
@@ -199,9 +192,13 @@
 
         @media (max-width: 768px) {
             .versions-container { grid-template-columns: 1fr; }
-            .download-hero { height: 300px; }
-            .cta-overlay { width: 85%; padding: 25px 15px; }
-            .patreon-btn { font-size: 0.9rem; padding: 12px 25px; width: 100%; box-sizing: border-box;}
+            .download-hero { 
+                height: 300px; 
+                /* Su mobile, centriamo di nuovo il bottone per estetica */
+                justify-content: center; 
+                padding-right: 0; 
+            }
+            .patreon-btn { font-size: 0.9rem; padding: 12px 25px; }
         }
     </style>
 </head>
@@ -219,12 +216,9 @@
     </header>
 
     <div class="download-hero">
-        <div class="cta-overlay">
-            <h3 style="margin: 0 0 15px 0; color: #fff; font-family: 'Montserrat';">SUPPORT DEVELOPMENT</h3>
-            <a href="https://www.patreon.com/c/lustlegion" target="_blank" class="patreon-btn">
-                <i class="fab fa-patreon"></i> BECOME A PATRON
-            </a>
-        </div>
+        <a href="https://www.patreon.com/c/lustlegion" target="_blank" class="patreon-btn">
+            <i class="fab fa-patreon"></i> BECOME A PATRON
+        </a>
     </div>
 
     <div class="versions-container">
