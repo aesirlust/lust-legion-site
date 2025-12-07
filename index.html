@@ -275,6 +275,42 @@
         &copy; 2025 Aesir Lust. Adult Content (18+).<br>
         All rights reserved.
     </footer>
+<div id="age-gate" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(18, 5, 24, 0.95); backdrop-filter: blur(15px); z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column; transition: opacity 0.5s;">
+        <div style="text-align: center; max-width: 600px; padding: 20px;">
+            <h1 style="color: var(--accent-pink); font-family: 'Montserrat'; font-size: 2.5rem; margin-bottom: 20px;">ADULT CONTENT</h1>
+            <p style="color: #ddd; font-size: 1.1rem; margin-bottom: 40px; line-height: 1.6;">
+                This website contains age-restricted materials including nudity and strong sexual content.<br>
+                By entering, you affirm that you are at least <strong>18 years old</strong> or the age of majority in your jurisdiction.
+            </p>
+            
+            <div style="display: flex; gap: 20px; justify-content: center;">
+                <button onclick="enterSite()" style="background: var(--accent-green); color: #fff; border: none; padding: 15px 40px; font-weight: 800; font-family: 'Montserrat'; text-transform: uppercase; cursor: pointer; border-radius: 50px; font-size: 1rem; box-shadow: 0 0 15px rgba(50, 205, 50, 0.4);">
+                    I am 18+ (Enter)
+                </button>
+                <a href="https://www.google.com" style="background: transparent; border: 2px solid #555; color: #aaa; padding: 13px 30px; font-weight: 700; font-family: 'Montserrat'; text-transform: uppercase; cursor: pointer; border-radius: 50px; text-decoration: none; font-size: 0.9rem;">
+                    Exit
+                </a>
+            </div>
+        </div>
+    </div>
 
+    <script>
+        // Controlla se l'utente ha già confermato l'età
+        if (localStorage.getItem('ageConfirmed') === 'true') {
+            document.getElementById('age-gate').style.display = 'none';
+        }
+
+        function enterSite() {
+            // Nascondi l'overlay
+            const gate = document.getElementById('age-gate');
+            gate.style.opacity = '0';
+            setTimeout(() => {
+                gate.style.display = 'none';
+            }, 500);
+            
+            // Salva la scelta nel browser così non lo chiede più
+            localStorage.setItem('ageConfirmed', 'true');
+        }
+    </script>
 </body>
 </html>
