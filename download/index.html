@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* --- STILE BASE --- */
+        
         :root {
             --bg-dark: #120518;        
             --bg-purple: #2a0e36;      
@@ -30,7 +30,7 @@
             min-height: 100vh;
         }
 
-        /* HEADER */
+       
         header {
             background: rgba(15, 5, 20, 0.95);
             padding: 20px 0;
@@ -57,27 +57,21 @@
         }
         nav a:hover { color: white; }
 
-        /* --- HERO BANNER MODIFICATO --- */
+        
         .download-hero {
             position: relative;
-            /* Assicurati che il percorso dell'immagine sia corretto */
             background: linear-gradient(rgba(0,0,0,0.3), rgba(18, 5, 24, 1)), url('../hero_bg.jpg'); 
             background-size: cover;
             background-position: center;
             height: 350px; 
             display: flex; 
             align-items: center; 
-            /* Modifica per spostare il contenuto a destra */
             justify-content: flex-end; 
-            /* Aggiunge spazio a destra per non attaccare il bottone al bordo */
             padding-right: 10%; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            box-sizing: border-box; /* Assicura che il padding non aumenti la larghezza totale */
+            box-sizing: border-box; 
         }
 
-        /* La classe .cta-overlay è stata rimossa poiché non serve più */
-
-        /* STILE BOTTONE PATREON */
         .patreon-btn {
             background: linear-gradient(90deg, #FF424D 0%, #ff7b5c 100%);
             color: white;
@@ -93,7 +87,6 @@
             justify-content: center;
             box-shadow: 0 5px 20px rgba(255, 66, 77, 0.4);
             transition: 0.3s;
-            /* Aggiunto un margine inferiore per sicurezza su mobile */
             margin-bottom: 20px; 
         }
         .patreon-btn:hover { 
@@ -102,7 +95,6 @@
         }
         .patreon-btn i { margin-right: 10px; font-size: 1.3rem; }
 
-        /* --- GRIGLIA VERSIONI --- */
         .versions-container {
             max-width: 1100px;
             margin: 80px auto 50px auto;
@@ -195,7 +187,6 @@
             .versions-container { grid-template-columns: 1fr; }
             .download-hero { 
                 height: 300px; 
-                /* Su mobile, centriamo di nuovo il bottone per estetica */
                 justify-content: center; 
                 padding-right: 0; 
             }
