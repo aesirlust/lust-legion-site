@@ -122,7 +122,9 @@
             to   { transform: translate3d(3%, 3%, 0) scale(1.08); }
         }
 
-        img { max-width: 100%; display: block; }
+        /* height:auto is what keeps every image on its real aspect ratio,
+           even when width/height attributes are present in the HTML */
+        img { max-width: 100%; height: auto; display: block; }
 
         a { color: var(--accent-pink); }
 
@@ -283,7 +285,11 @@
         }
 
         .hero-logo {
-            width: min(560px, 90vw);
+            width: min(560px, 88vw);
+            height: auto;                 /* height follows the real proportions */
+            aspect-ratio: 1920 / 1271;    /* reserves the exact box before load */
+            max-height: 42svh;            /* keeps it sane on short / landscape screens */
+            object-fit: contain;          /* if max-height kicks in: scales down, never squashes */
             filter: drop-shadow(0 12px 40px rgba(255, 75, 182, 0.35));
             animation: float 7s ease-in-out infinite;
         }
@@ -869,7 +875,7 @@
         <!-- ============ HERO ============ -->
         <section class="hero">
             <div class="hero-inner">
-                <img src="Lust-legion-plogo.png" alt="Lust Legion" class="hero-logo" width="560" height="360">
+                <img src="Lust-legion-plogo.png" alt="Lust Legion" class="hero-logo" width="1920" height="1271" fetchpriority="high">
                 <p class="hero-tagline">An adult visual novel where every choice decides who you become — and who stays.</p>
                 <div class="hero-buttons">
                     <a href="download/" class="btn btn-download">
